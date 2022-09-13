@@ -26,9 +26,28 @@ body {
 
 #progress-bar{
     border-radius: 50px;
-    border: 1px solid black;
     width: 90%;
     height: 20px;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    background-color: #2f1d58;
+    overflow: auto;
+    flex-direction: row;
+}
+#progress-bar div{
+height: 100%;
+width: 10%;
+margin: 5px;
+background-color: lightblue;
+}
+
+#question{
+    padding: 1.5rem 0;
+    text-align: center;
 }
 
 .answer{
