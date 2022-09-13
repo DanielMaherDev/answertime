@@ -1,2 +1,11 @@
-body{
+* { 
+	box-sizing: border-box;
+}
+html, body {
+	min-height: 100%;
+	color: #000;
+}
+	
+body {
+	margin: 0;
 }
