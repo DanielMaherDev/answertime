@@ -26,7 +26,7 @@ body {
 
 #progress-bar{
     border-radius: 50px;
-    width: 90%;
+    width: 80%;
     height: 20px;
     margin-top: 1rem;
     display: flex;
@@ -34,15 +34,14 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     align-content: flex-start;
-    background-color: #2f1d58;
-    overflow: auto;
     flex-direction: row;
+    background: none;
+    overflow: hidden
 }
 #progress-bar div{
 height: 100%;
 width: 10%;
-margin: 5px;
-background-color: lightblue;
+background-color: green;
 }
 
 #question{

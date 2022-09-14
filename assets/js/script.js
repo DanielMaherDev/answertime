@@ -11,6 +11,7 @@ function test() {
         countdownBarStage.style.backgroundColor="red";
         console.log(countdownBarStage)
     } else {
+        alert('Game Over!')
         return;
     }
     console.log(seconds)
