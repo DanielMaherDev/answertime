@@ -19,7 +19,11 @@ body {
     padding: 1rem 2rem;
     min-width: 90%;
     text-align: center;
-    margin-bottom: 25px
+    margin-bottom: 25px;
+}
+
+#start-button{
+    margin-top: 75%
 }
 
 #question-number, #question, .answer, #progress-bar{
@@ -72,4 +76,3 @@ background-color: green;
     margin-bottom: 25px
 
 }
-
