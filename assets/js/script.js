@@ -11,10 +11,11 @@ function startGame(){
     
         var welcomeScreen = document.getElementById("welcome-screen");
         welcomeScreen.classList.remove("active");
+        let seconds = 0;
 
-
+        countdown();
         function countdown() {
-            let seconds = 0;
+            console.log('testcountdown')
             if (seconds < 10) {
                 ++seconds;
                 let countdownBarStage = document.getElementById(`seconds${seconds}`)
