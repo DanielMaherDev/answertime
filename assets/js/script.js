@@ -4,8 +4,10 @@
 let seconds = 0;
 
 function countdown() {
-    document.getElementById('welcome-screen').style.display = "none";
-    document.getElementsByClassName('quiz-container')[0].style.display = "block";
+    var quiz = document.getElementsByClassName("quiz-container")[0];
+    quiz.classList.add("active");
+    var welcomeScreen = document.getElementById("welcome-screen");
+    welcomeScreen.classList.remove("active");
 
     if (seconds < 10) {
         ++seconds;
