@@ -12,6 +12,7 @@ const questionResult = document.getElementById("question-result");
 const nextQuestion = document.getElementById('next-question');
 let qstnNumber = 0;
 let seconds = 0;
+const countdownBar = document.getElementsByClassName('progress')
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -36,16 +37,18 @@ document.addEventListener("DOMContentLoaded", function () {
             stopGame = true;
             questionResult.classList.add("active");
             quiz.classList.remove("active");
-            console.log(seconds)
             if (answer.getAttribute('id') == questions[qstnNumber].correct) {
                 document.getElementById('answered').innerText = answer.innerText;
 
                let scoreAmount = parseInt(document.getElementById('score-amount').innerText)
                scoreAmount = scoreAmount += (10 - seconds)
                document.getElementById('score-amount').innerText = scoreAmount;
+               document.getElementById('seconds').innerText = seconds;
+
             } else {
                 document.getElementById('answered').innerText = 'wrong';
             }
+            seconds = 0;
             
 
         }
@@ -69,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
             stopGame = false;
             setQuestion();
 
+            seconds=0;
 
             ; /* declared outside the countdown function as it repeats */
             /** This is the function which controls the timer, and timeout */
@@ -81,8 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     return;
                 }
                 setTimeout(countdown, 1000);
+
             }
-            countdown();
+            setTimeout(countdown, 1000);
 
 
 
@@ -96,6 +101,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 answerOptions = answerOptions.slice(2, 6);
                 for (let i = 0; i < answerDivs.length; i++) {
                     answerDivs[i].innerHTML = answerOptions[i];
+                }
+                for(let bar of countdownBar){
+                bar.style.backgroundColor = "green";
                 }
             }
 
