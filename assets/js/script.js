@@ -5,6 +5,30 @@ import {
  * This function runs when the user has selected to start the game. 
  */
  let backgroundMusic = new Audio('/assets/audio/background-audio.mp3');
+ let answerDivs = document.getElementsByClassName('answer');
+
+ document.addEventListener("DOMContentLoaded", function() {
+
+    for (let answer of answerDivs) {
+        answer.addEventListener("click", function() {
+            if (this.getAttribute("data-type") === "answer") {
+                stopGame = true;
+            } 
+            else{
+                return;
+            }
+        });
+    }
+
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    });
+
+    runGame("addition");
+
+});
 
 function startGame() {
     /*play audio music in background*/
@@ -48,7 +72,6 @@ function newQuestion() {
         let answerOptions = [];
         answerOptions = Object.values(questions[qstnNumber])
         answerOptions = answerOptions.slice(2, 6);
-        let answerDivs = document.getElementsByClassName('answer');
         for (let i = 0; i < answerDivs.length; i++) {
             answerDivs[i].innerHTML = answerOptions[i];
         }
