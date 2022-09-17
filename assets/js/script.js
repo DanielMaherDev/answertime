@@ -1,4 +1,7 @@
-import { questions } from "./questions.js";/**
+import {
+    questions
+} from "./questions.js";
+/**
  * This function runs when the user has selected to start the game. 
  */
 function startGame() {
@@ -15,6 +18,7 @@ function startGame() {
     let seconds = 0; /* declared outside the countdown function as it repeats */
     /** This is the function which controls the timer, and timeout */
     countdown();
+
     function countdown() {
         if (seconds < 10) {
             ++seconds;
@@ -27,8 +31,22 @@ function startGame() {
         }
         setTimeout(countdown, 1000);
     }
-    function setQuestion(){
-        document.getElementById('question').innerHTML = questions[0].question;
+
+    /**
+     * The below function will set the question and answer values for the quiz
+     */
+    function setQuestion() {
+        let qstnNumber = 0
+        document.getElementById('question').innerHTML = questions[qstnNumber].question;
+        let answerDivs = document.getElementsByClassName('answer');
+        let answerOptions = [];
+        answerOptions = Object.values(questions[qstnNumber])
+        answerOptions = answerOptions.slice(2,6)
+        console.log(answerOptions)
+        for (let i = 1; i<answerDivs.length; i++){
+            answerDivs[0].innerHTML="";
+        }
+
     }
 
     setQuestion();
