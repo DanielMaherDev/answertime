@@ -21,7 +21,7 @@ body {
     margin: 0 auto;
     width: fit-content;
 }
-.quiz-container, #welcome-screen{
+.quiz-container, #welcome-screen, #question-result{
     background-color: #cbf078; 
     width: 100%;
     height: 100vh;
