@@ -13,17 +13,8 @@ body {
     font-size: 1.4rem;
 }
 
-#welcome-screen > div{
-    color: #cbf078;
-    background-color: black;
-    padding: 1rem 2rem;
-    min-width: 90%;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
 #start-button{
-    margin-top: 75%
+    margin-top: 200px;
 }
 
 #question-number, #question, .answer, #progress-bar{
@@ -67,7 +58,7 @@ background-color: green;
     text-align: center;
 }
 
-.answer{
+.divbtn{
     color: #cbf078;
     background-color: black;
     padding: 1rem 2rem;
@@ -75,4 +66,9 @@ background-color: green;
     text-align: center;
     margin-bottom: 25px
 
+}
+
+.divbtn:hover{
+    color:black;
+    background-color: white;
 }

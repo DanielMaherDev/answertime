@@ -10,8 +10,8 @@
 </head>
 <body>
     <div id="welcome-screen" class="active">
-        <div id="start-button">START</div>
-        <div id="how-to-play">HOW TO PLAY</div>
+        <div id="start-button" class="divbtn" >START</div>
+        <div id="how-to-play" class="divbtn">HOW TO PLAY</div>
     </div>
     <div class="quiz-container">
         <div id="question-number">QUESTION <span>1</span></div>
@@ -30,15 +30,17 @@
         </div>
         <div class="quiz">
         <div id="question">What is the capital of Greece?</div>
-        <div class="answer" data-type="answer1" id="answer1">Athens</div>
-        <div class="answer" data-type="answer2" id="answer2">Thesaloniki</div>
-        <div class="answer" data-type="answer3" id="answer3">Meteroa</div>
-        <div class="answer" data-type="answer4" id="answer4">Myknos</div>
+        <div class="answer divbtn" data-type="answer1" id="answer1">Athens</div>
+        <div class="answer divbtn" data-type="answer2" id="answer2">Thesaloniki</div>
+        <div class="answer divbtn" data-type="answer3" id="answer3">Meteroa</div>
+        <div class="answer divbtn" data-type="answer4" id="answer4">Myknos</div>
     </div>
     <div class="score">Your Score: <span>0</span>/100</div>
 
     </div>
 
     <script type="module" src="assets/js/script.js"></script>
+    <script type="module" src="assets/js/questions.js"></script>
+
 </body>
 </html>
