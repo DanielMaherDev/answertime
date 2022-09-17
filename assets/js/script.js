@@ -4,33 +4,40 @@ import {
 /**
  * This function runs when the user has selected to start the game. 
  */
- let backgroundMusic = new Audio('/assets/audio/background-audio.mp3');
- const answerDivs = document.getElementsByClassName('answer');
- const quiz = document.getElementsByClassName("quiz-container")[0];
- const welcomeScreen = document.getElementById("welcome-screen");
- const questionResult = document.getElementById("question-result");
+let backgroundMusic = new Audio('/assets/audio/background-audio.mp3');
+const answerDivs = document.getElementsByClassName('answer');
+const quiz = document.getElementsByClassName("quiz-container")[0];
+const welcomeScreen = document.getElementById("welcome-screen");
+const questionResult = document.getElementById("question-result");
+let qstnNumber = 0
 
 
- document.addEventListener("DOMContentLoaded", function() {
-
-    for (let answer of answerDivs) {
-        answer.addEventListener("click", function() {
-                stopGame = true;
-                questionResult.classList.add("active");
-                quiz.classList.remove("active");
-
-        });
-    }
-
-    document.getElementById("answer-box").addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            checkAnswer();
-        }
-    });
-
-    runGame("addition");
-
+document.addEventListener("DOMContentLoaded", function () {
+    for (var i = 0; i < answerDivs.length; i++) {
+        (function(index) {
+             answerDivs[index].addEventListener("click", function(){
+                let selectedAnswer =  answerDivs[index];
+                answerSelected(selectedAnswer)
+             })
+        })(i);
+     }
 });
+
+
+
+function answerSelected(answer){
+    stopGame = true;
+    questionResult.classList.add("active");
+    quiz.classList.remove("active");
+    console.log(answer)
+    if(answer.getAttribute('id') == questions[qstnNumber].correct){
+        console.log('correct')
+    }
+    else{
+        alert(incorrect)
+    }
+    
+}
 
 function startGame() {
     /*play audio music in background*/
@@ -67,7 +74,6 @@ function newQuestion() {
      * The below function will set the question and answer values for the quiz
      */
     function setQuestion() {
-        let qstnNumber = 0
         document.getElementById('question').innerHTML = questions[qstnNumber].question;
         let answerOptions = [];
         answerOptions = Object.values(questions[qstnNumber])
@@ -75,15 +81,13 @@ function newQuestion() {
         for (let i = 0; i < answerDivs.length; i++) {
             answerDivs[i].innerHTML = answerOptions[i];
         }
-        answerDivs.addEventListener('click', answerSelected);
-
     }
 
 
     function answerSelected() {
         stopGame = true;
     }
-    
+
     setQuestion();
 }
 
