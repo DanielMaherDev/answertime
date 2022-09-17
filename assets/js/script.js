@@ -4,7 +4,7 @@ import {
 /**
  * This function runs when the user has selected to start the game. 
  */
-let backgroundMusic = new Audio('/assets/audio/background-audio.mp3');
+const backgroundMusic = new Audio('/assets/audio/background-audio.mp3');
 const answerDivs = document.getElementsByClassName('answer');
 const quiz = document.getElementsByClassName("quiz-container")[0];
 const welcomeScreen = document.getElementById("welcome-screen");
@@ -31,10 +31,9 @@ function answerSelected(answer){
     quiz.classList.remove("active");
     console.log(answer)
     if(answer.getAttribute('id') == questions[qstnNumber].correct){
-        console.log('correct')
-    }
+        document.getElementById('answered').innerText = answer.innerText    }
     else{
-        alert(incorrect)
+        document.getElementById('answered').innerText = 'wrong';
     }
     
 }
@@ -81,11 +80,6 @@ function newQuestion() {
         for (let i = 0; i < answerDivs.length; i++) {
             answerDivs[i].innerHTML = answerOptions[i];
         }
-    }
-
-
-    function answerSelected() {
-        stopGame = true;
     }
 
     setQuestion();
