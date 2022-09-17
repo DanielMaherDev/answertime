@@ -15,10 +15,13 @@ function startGame() {
 
     var welcomeScreen = document.getElementById("welcome-screen");
     welcomeScreen.classList.remove("active");
-    let seconds = 0; /* declared outside the countdown function as it repeats */
-    /** This is the function which controls the timer, and timeout */
-    countdown();
 
+    newQuestion();
+}
+
+    function newQuestion(){
+        let seconds = 0; /* declared outside the countdown function as it repeats */
+        /** This is the function which controls the timer, and timeout */
     function countdown() {
         if (seconds < 10) {
             ++seconds;
@@ -31,6 +34,9 @@ function startGame() {
         }
         setTimeout(countdown, 1000);
     }
+    countdown();
+
+    let answerDivs = document.getElementsByClassName('answer');
 
     /**
      * The below function will set the question and answer values for the quiz
@@ -38,16 +44,23 @@ function startGame() {
     function setQuestion() {
         let qstnNumber = 0
         document.getElementById('question').innerHTML = questions[qstnNumber].question;
-        let answerDivs = document.getElementsByClassName('answer');
         let answerOptions = [];
         answerOptions = Object.values(questions[qstnNumber])
-        answerOptions = answerOptions.slice(2,6)
-        console.log(answerOptions)
-        for (let i = 1; i<answerDivs.length; i++){
-            answerDivs[0].innerHTML="";
+        answerOptions = answerOptions.slice(2, 6);
+
+        for (let i = 0; i < answerDivs.length; i++) {
+            answerDivs[i].innerHTML = answerOptions[i];
         }
+    }
+
+    function answerSelected(){
 
     }
+
+    answerDivs.addEventListener('click', answerSelected);
+
+
+
 
     setQuestion();
 }
