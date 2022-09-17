@@ -1,6 +1,6 @@
 let questions = [
     {
-      question: "What is the capital of Greece",
+      question: "What is the capital of Greece?",
       imgSrc: "img/html.png",
       choiceA: "Athens",
       choiceB: "Thesaloniki",
@@ -18,3 +18,5 @@ let questions = [
       correct: "A",
     },
   ];
+
+  export {questions};

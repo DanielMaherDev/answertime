@@ -1,4 +1,4 @@
-/**
+import { questions } from "./questions.js";/**
  * This function runs when the user has selected to start the game. 
  */
 function startGame() {
@@ -20,15 +20,18 @@ function startGame() {
             ++seconds;
             let countdownBarStage = document.getElementById(`seconds${seconds}`)
             countdownBarStage.style.backgroundColor = "red";
-            console.log(countdownBarStage)
         } else {
             backgroundMusic.pause();
             alert('Game Over!')
             return;
         }
-        console.log(seconds)
         setTimeout(countdown, 1000);
     }
+    function setQuestion(){
+        document.getElementById('question').innerHTML = questions[0].question;
+    }
+
+    setQuestion();
 }
 
 const startButton = document.getElementById('start-button');
