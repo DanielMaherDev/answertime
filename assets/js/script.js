@@ -26,14 +26,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 nextQuestion.addEventListener("click", function () {
                         qstnNumber += 1;
                         newQuestion()
+                        console.log(qstnNumber)
                 }
                     )
                 }
             });
 
 
-
         function answerSelected(answer) {
+        
+
             stopGame = true;
             questionResult.classList.add("active");
             quiz.classList.remove("active");
