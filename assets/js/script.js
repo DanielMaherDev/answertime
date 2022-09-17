@@ -4,9 +4,10 @@ import {
 /**
  * This function runs when the user has selected to start the game. 
  */
+ let backgroundMusic = new Audio('/assets/audio/background-audio.mp3');
+
 function startGame() {
     /*play audio music in background*/
-    let backgroundMusic = new Audio('/assets/audio/background-audio.mp3');
     backgroundMusic.play();
 
     /* hide the welcome screen and show the main quiz container */
@@ -18,25 +19,25 @@ function startGame() {
 
     newQuestion();
 }
+let stopGame;
 
-    function newQuestion(){
-        let seconds = 0; /* declared outside the countdown function as it repeats */
-        /** This is the function which controls the timer, and timeout */
+function newQuestion() {
+    let seconds = 0; /* declared outside the countdown function as it repeats */
+    /** This is the function which controls the timer, and timeout */
     function countdown() {
-        if (seconds < 10) {
+        if (seconds < 10 && stopGame != true) {
             ++seconds;
             let countdownBarStage = document.getElementById(`seconds${seconds}`)
             countdownBarStage.style.backgroundColor = "red";
         } else {
             backgroundMusic.pause();
-            alert('Game Over!')
             return;
         }
         setTimeout(countdown, 1000);
     }
     countdown();
 
-    let answerDivs = document.getElementsByClassName('answer');
+
 
     /**
      * The below function will set the question and answer values for the quiz
@@ -47,21 +48,19 @@ function startGame() {
         let answerOptions = [];
         answerOptions = Object.values(questions[qstnNumber])
         answerOptions = answerOptions.slice(2, 6);
-
+        let answerDivs = document.getElementsByClassName('answer');
         for (let i = 0; i < answerDivs.length; i++) {
             answerDivs[i].innerHTML = answerOptions[i];
         }
-    }
-
-    function answerSelected(){
+        answerDivs.addEventListener('click', answerSelected);
 
     }
 
-    answerDivs.addEventListener('click', answerSelected);
 
-
-
-
+    function answerSelected() {
+        stopGame = true;
+    }
+    
     setQuestion();
 }
 
