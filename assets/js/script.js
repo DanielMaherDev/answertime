@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
             questionResult.classList.remove("active");
             quiz.classList.add("active");
             stopGame = false;
+            document.getElementById('question-number').innerText= qstnNumber+1
             setQuestion();
 
             seconds=0;
