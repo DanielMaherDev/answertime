@@ -23,13 +23,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         answerSelected(selectedAnswer)
                     })
                 })(i);
+               
+                }
                 nextQuestion.addEventListener("click", function () {
-                        qstnNumber += 1;
-                        newQuestion()
-                        console.log(qstnNumber)
-                }
-                    )
-                }
+                    qstnNumber += 1;
+                    newQuestion()
+                    console.log(qstnNumber)
+            }
+                )
             });
 
 
@@ -82,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (seconds < 10 && stopGame != true) {
                     ++seconds;
                     let countdownBarStage = document.getElementById(`seconds${seconds}`)
+                    console.log(countdownBarStage)
                     countdownBarStage.style.backgroundColor = "red";
                 } else {
                     return;
