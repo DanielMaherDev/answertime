@@ -23,18 +23,25 @@ html, body {
 body {
 	margin: 0;
     font-size: 1.4rem;
+    background: url('../images/quiz-background-image.jpg') no-repeat center  left; 
+    background-size: cover;
+
 }
 
-#start-button{
-    margin-top: 200px;
+#title{
+    text-align: center;
+    font-size: 32px;
+    padding-top: 25%;
+    height: 50%;
 }
+
 
 #question-number, #question, .answer, #progress-bar{
     margin: 0 auto;
     width: fit-content;
 }
 .quiz-container, #welcome-screen, #question-result{
-    background-color: #cbf078; 
+    background: rgba(255, 255, 255, 0.7);
     width: 100%;
     height: 100vh;
     padding: 5%;
