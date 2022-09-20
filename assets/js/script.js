@@ -8,7 +8,6 @@ import {musicQuestions,
  */
 const backgroundMusic = new Audio('./answertime/../assets/audio/background-audio.mp3');
 const clickSound = new Audio('./answertime/../assets/audio/click.wav');
-
 const answerDivs = document.getElementsByClassName('answer');
 const quiz = document.getElementsByClassName("quiz-container")[0];
 const welcomeScreen = document.getElementById("welcome-screen");
@@ -23,7 +22,11 @@ const gameTypes = document.getElementById('game-types')
 let gameTypeNumber;
 const buttons = document.getElementsByClassName('divbtn');
 startButton.addEventListener('click', chooseGame);
+const soundOn = document.getElementById('music');
 
+soundOn.addEventListener('click', function(){
+    backgroundMusic.muted = true;
+})
 for(let i=0; i< buttons.length; i++){
 buttons[i].addEventListener('click', function(){
     clickSound.play();

@@ -3,6 +3,20 @@
 	box-sizing: border-box;
 }
 
+#music{
+    width: 3rem;
+    height: 3rem;
+    position: fixed;
+    right: 10px;
+    top: 20px;
+    color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+}
+
+#music i{
+    font-size: 2rem;
+}
+
 .divbtn:hover{
     animation-name: interactive-buttons;
     animation-duration: 2s;
