@@ -21,12 +21,12 @@ const startButton = document.getElementById('start-button');
 const gameType = document.getElementsByClassName('game-type');
 const gameTypes = document.getElementById('game-types')
 let gameTypeNumber;
-const buttons = document.getElementById('divbtn');
+const buttons = document.getElementsByClassName('divbtn');
 
 startButton.addEventListener('click', chooseGame);
 
-for(let button in buttons){
-button[i].addEventListener('click', function(){
+for(let i=0; i< buttons.length; i++){
+buttons[i].addEventListener('click', function(){
     clickSound.play();
 });
 }
@@ -79,7 +79,8 @@ function answerSelected(answer) {
 
 
     } else {
-        document.getElementById('question-result').innerText = 'Incorrect Answer';
+        document.getElementById('question-result').innerHTML = `Incorrect Answer
+        <div id="next-question" class="divbtn">NEXT</div>`;
     }
     seconds = 0;
 
