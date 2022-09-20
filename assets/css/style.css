@@ -41,27 +41,26 @@ body {
     display: none;
 }
 
-.game-types {
-display: none;
+#game-types {
+    display: none;
+
+}
+
+#game-types.active{
+    display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: flex-start;
     align-content: flex-start;
-    width: 65%;
+    width: 100%;
     background-color: #2f1d58;
-    height: 80vh;
+    height: 100vh;
     overflow: auto;
     flex-direction: row;
 }
 
-.game-types.active{
-    display: flex;
-    
-}
-
 .game-type{
-    width: 100px;
-    height: 100px;
+    height: 50%;
     margin: 5px;
     background-color: lightblue;
 }

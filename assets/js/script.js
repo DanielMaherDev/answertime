@@ -24,6 +24,8 @@ startButton.addEventListener('click', chooseGame);
 
 function chooseGame(){
 gameTypes.classList.add('active')
+welcomeScreen.classList.remove('active')
+
 for(let g=0; g<gameType.length; g++){
     gameType[g].addEventListener('click', function(){
          gameTypeNumber= g;
@@ -81,6 +83,7 @@ function startGame() {
 
     /* hide the welcome screen and show the main quiz container */
     quiz.classList.add("active");
+    gameTypes.classList.remove("active");
 
     welcomeScreen.classList.remove("active");
 

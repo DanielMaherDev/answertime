@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,18 +9,21 @@
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
 
 </head>
+
 <body>
     <div id="welcome-screen" class="active">
-        <div id="start-button" class="divbtn" >START</div>
-        <div class="game-types">
+        <div id="start-button" class="divbtn">START</div>
+        <div id="how-to-play" class="divbtn">HOW TO PLAY</div>
+    </div>
+    <div id="choose-game">
+        <div id="game-types">
             <div id="general-knowledge" class="game-type">GENERAL KNOWLEDGE</div>
             <div id="music" class="game-type">MUSIC</div>
         </div>
-
-        <div id="how-to-play" class="divbtn">HOW TO PLAY</div>
     </div>
+
     <div class="quiz-container">
-        <div id="">QUESTION <span id="question-number" >1</span></div>
+        <div id="">QUESTION <span id="question-number">1</span></div>
         <div id="progress-bar">
             <div class="progress" id="seconds10"></div>
             <div class="progress" id="seconds9"></div>
@@ -34,18 +38,18 @@
 
         </div>
         <div class="quiz">
-        <div id="question"></div>
-        <div class="answer divbtn" data-type="answer" id="A"></div>
-        <div class="answer divbtn" data-type="answer" id="B"></div>
-        <div class="answer divbtn" data-type="answer" id="C"></div>
-        <div class="answer divbtn" data-type="answer" id="D"></div>
-    </div>
+            <div id="question"></div>
+            <div class="answer divbtn" data-type="answer" id="A"></div>
+            <div class="answer divbtn" data-type="answer" id="B"></div>
+            <div class="answer divbtn" data-type="answer" id="C"></div>
+            <div class="answer divbtn" data-type="answer" id="D"></div>
+        </div>
 
-    <div class="score">Your Score: <span id="score-amount">0</span>/100</div>
+        <div class="score">Your Score: <span id="score-amount">0</span>/100</div>
 
     </div>
     <div id="question-result">
-        You answered <span id="answered"></span> in <span id="seconds"></span>  seconds 
+        You answered <span id="answered"></span> in <span id="seconds"></span> seconds
         Correct!
         +<span id="current-question-score"></span> points
         <div id="next-question">NEXT</div>
@@ -56,4 +60,5 @@
 
 
 </body>
+
 </html>
