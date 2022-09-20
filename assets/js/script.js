@@ -6,7 +6,9 @@ import {musicQuestions,
 /**
  * This function runs when the user has selected to start the game. 
  */
-const backgroundMusic = new Audio('/assets/audio/background-audio.mp3');
+const backgroundMusic = new Audio('../assets/audio/background-audio.mp3');
+const clickSound = new Audio('../assets/audio/click.wav');
+
 const answerDivs = document.getElementsByClassName('answer');
 const quiz = document.getElementsByClassName("quiz-container")[0];
 const welcomeScreen = document.getElementById("welcome-screen");
@@ -19,8 +21,15 @@ const startButton = document.getElementById('start-button');
 const gameType = document.getElementsByClassName('game-type');
 const gameTypes = document.getElementById('game-types')
 let gameTypeNumber;
+const buttons = document.getElementById('divbtn');
 
 startButton.addEventListener('click', chooseGame);
+
+for(let button in buttons){
+button[i].addEventListener('click', function(){
+    clickSound.play();
+});
+}
 
 function chooseGame(){
 gameTypes.classList.add('active')
