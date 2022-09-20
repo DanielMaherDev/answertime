@@ -22,7 +22,6 @@ const gameType = document.getElementsByClassName('game-type');
 const gameTypes = document.getElementById('game-types')
 let gameTypeNumber;
 const buttons = document.getElementsByClassName('divbtn');
-
 startButton.addEventListener('click', chooseGame);
 
 for(let i=0; i< buttons.length; i++){
@@ -32,8 +31,13 @@ buttons[i].addEventListener('click', function(){
 }
 
 function chooseGame(){
-gameTypes.classList.add('active')
+welcomeScreen.classList.add('exit-animation')
+
+setTimeout(function(){
+    gameTypes.classList.add('active', 'enter-animation')
 welcomeScreen.classList.remove('active')
+}, 1000);
+
 
 for(let g=0; g<gameType.length; g++){
     gameType[g].addEventListener('click', function(){

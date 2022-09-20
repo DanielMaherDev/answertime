@@ -123,3 +123,40 @@ background-color: green;
     margin-bottom: 25px
 
 }
+
+
+/* animations */
+
+.exit-animation{
+    animation-name: exit;
+    animation-duration: 1.2s;
+}
+
+@keyframes exit {
+    
+    40%{
+        opacity:0;
+    }
+    60%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+
+.enter-animation{
+    animation-name: enter;
+    animation-duration: 1s;
+}
+
+@keyframes enter {
+    
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
