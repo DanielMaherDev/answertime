@@ -1,10 +1,8 @@
-import {
+import {musicQuestions,
     questions
 } from "./questions.js";
 
-import {
-    musicQuestions
-} from "./musicquestions";
+
 /**
  * This function runs when the user has selected to start the game. 
  */
@@ -19,14 +17,15 @@ let seconds = 0;
 const countdownBar = document.getElementsByClassName('progress')
 const startButton = document.getElementById('start-button');
 const gameType = document.getElementsByClassName('game-type');
-let selectedGame;
+let gameTypeNumber;
 
 startButton.addEventListener('click', chooseGame);
 
 function chooseGame(){
 for(let g=0; g<gameType.length; g++){
     gameType[g].addEventListener('click', function(){
-        startGame(g)
+         gameTypeNumber= g;
+        startGame()
     }
 );
     }
@@ -74,7 +73,7 @@ function answerSelected(answer) {
 
 }
 
-function startGame(g) {
+function startGame() {
     /*play audio music in background*/
     backgroundMusic.play();
 
@@ -83,16 +82,16 @@ function startGame(g) {
 
     welcomeScreen.classList.remove("active");
 
-    newQuestion(g);
+    newQuestion();
 }
 let stopGame;
 
-function newQuestion(g) {
+function newQuestion() {
     questionResult.classList.remove("active");
     quiz.classList.add("active");
     stopGame = false;
-    document.getElementById('question-number').innerText = qstnNumber + 1
-    setQuestion(g);
+    document.getElementById('question-number').innerText = qstnNumber + 1;
+    setQuestion();
 
     seconds = 0;
 
@@ -102,7 +101,6 @@ function newQuestion(g) {
         if (seconds < 10 && stopGame != true) {
             ++seconds;
             let countdownBarStage = document.getElementById(`seconds${seconds}`)
-            console.log(countdownBarStage)
             countdownBarStage.style.backgroundColor = "red";
         } else {
             return;
@@ -117,8 +115,8 @@ function newQuestion(g) {
     /**
      * The below function will set the question and answer values for the quiz
      */
-    function setQuestion(g) {
-        if(g=0){
+    function setQuestion() {
+        if(gameTypeNumber== 0){
         document.getElementById('question').innerHTML = questions[qstnNumber].question;
         let answerOptions = [];
         answerOptions = Object.values(questions[qstnNumber])
@@ -128,7 +126,7 @@ function newQuestion(g) {
         }
     }
     else{
-        document.getElementById('question').innerHTML = musicquestions[qstnNumber].question;
+        document.getElementById('question').innerHTML = musicQuestions[qstnNumber].question;
         let answerOptions = [];
         answerOptions = Object.values(musicQuestions[qstnNumber])
         answerOptions = answerOptions.slice(2, 6);
@@ -141,6 +139,7 @@ function newQuestion(g) {
  
     }
 }
+console.log(gameTypeNumber)
 
     setQuestion();
 }
