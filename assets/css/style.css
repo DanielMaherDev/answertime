@@ -2,6 +2,18 @@
 * { 
 	box-sizing: border-box;
 }
+
+.divbtn:hover{
+    animation-name: interactive-buttons;
+    animation-duration: 2s;
+    color:black;
+    background-color: #cbf078;
+    border: 5px solid black;
+}
+
+@keyframes interactive-buttons {
+   
+}
 html, body {
 	min-height: 100%;
 	color: #000;
@@ -66,9 +78,4 @@ background-color: green;
     text-align: center;
     margin-bottom: 25px
 
-}
-
-.divbtn:hover{
-    color:black;
-    background-color: white;
 }

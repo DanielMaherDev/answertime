@@ -1,6 +1,6 @@
 let questions = [
     {
-      question: "What is the capital of Greece?",
+      question: "What city is the capital of Greece?",
       imgSrc: "img/html.png",
       choiceA: "Athens",
       choiceB: "Thesaloniki",
@@ -9,13 +9,13 @@ let questions = [
       correct: "A",
     },
     {
-      question: "What does STUPID stand for?",
+      question: "What year did the beatles break up?",
       imgSrc: "img/html.png",
-      choiceA: "Correct",
-      choiceB: "Wrong",
-      choiceC: "Wrong",
-      choiceD: "Wrong",
-      correct: "A",
+      choiceA: "1974",
+      choiceB: "1982",
+      choiceC: "1970",
+      choiceD: "1967",
+      correct: "C",
     },
     {
       question: "What does STUPID stand for?",
