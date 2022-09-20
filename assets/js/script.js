@@ -65,12 +65,12 @@ function answerSelected(answer) {
         let scoreAmount = parseInt(document.getElementById('score-amount').innerText)
         scoreAmount = scoreAmount += (10 - seconds)
         document.getElementById('score-amount').innerText = scoreAmount;
-        document.getElementById('seconds').innerText = seconds;
+        document.getElementById('seconds').innerText = seconds +1;
         document.getElementById('current-question-score').innerText = 10 - seconds;
 
 
     } else {
-        document.getElementById('answered').innerText = 'wrong';
+        document.getElementById('question-result').innerText = 'Incorrect Answer';
     }
     seconds = 0;
 
