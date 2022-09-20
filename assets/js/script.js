@@ -6,8 +6,8 @@ import {musicQuestions,
 /**
  * This function runs when the user has selected to start the game. 
  */
-const backgroundMusic = new Audio('../assets/audio/background-audio.mp3');
-const clickSound = new Audio('../assets/audio/click.wav');
+const backgroundMusic = new Audio('/assets/audio/background-audio.mp3');
+const clickSound = new Audio('/assets/audio/click.wav');
 
 const answerDivs = document.getElementsByClassName('answer');
 const quiz = document.getElementsByClassName("quiz-container")[0];
