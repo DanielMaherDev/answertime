@@ -13,7 +13,21 @@ const nextQuestion = document.getElementById('next-question');
 let qstnNumber = 0;
 let seconds = 0;
 const countdownBar = document.getElementsByClassName('progress')
+const startButton = document.getElementById('start-button');
+const gameType = document.getElementsByClassName('game-type');
+let selectedGame;
 
+startButton.addEventListener('click', chooseGame);
+
+function chooseGame(){
+for(let i=0; i<gameType.length; i++){
+    gameType[i].addEventListener('click', function(){
+        startGame(i)
+    }
+);
+    }
+}
+    
 
 document.addEventListener("DOMContentLoaded", function () {
     for (var i = 0; i < answerDivs.length; i++) {
@@ -28,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
     nextQuestion.addEventListener("click", function () {
         qstnNumber += 1;
         newQuestion()
-        console.log(qstnNumber)
     })
 });
 
@@ -116,5 +129,3 @@ function newQuestion() {
     setQuestion();
 }
 
-const startButton = document.getElementById('start-button');
-startButton.addEventListener('click', startGame)

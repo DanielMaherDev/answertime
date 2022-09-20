@@ -41,6 +41,30 @@ body {
     display: none;
 }
 
+.game-types {
+display: none;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    width: 65%;
+    background-color: #2f1d58;
+    height: 80vh;
+    overflow: auto;
+    flex-direction: row;
+}
+
+.game-types.active{
+    display: flex;
+    
+}
+
+.game-type{
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    background-color: lightblue;
+}
 .active{
     display: block !important;
 }
