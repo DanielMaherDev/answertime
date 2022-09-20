@@ -1,6 +1,10 @@
 import {
     questions
 } from "./questions.js";
+
+import {
+    musicQuestions
+} from "./musicquestions";
 /**
  * This function runs when the user has selected to start the game. 
  */
@@ -20,9 +24,9 @@ let selectedGame;
 startButton.addEventListener('click', chooseGame);
 
 function chooseGame(){
-for(let i=0; i<gameType.length; i++){
-    gameType[i].addEventListener('click', function(){
-        startGame(i)
+for(let g=0; g<gameType.length; g++){
+    gameType[g].addEventListener('click', function(){
+        startGame(g)
     }
 );
     }
@@ -70,7 +74,7 @@ function answerSelected(answer) {
 
 }
 
-function startGame() {
+function startGame(g) {
     /*play audio music in background*/
     backgroundMusic.play();
 
@@ -79,16 +83,16 @@ function startGame() {
 
     welcomeScreen.classList.remove("active");
 
-    newQuestion();
+    newQuestion(g);
 }
 let stopGame;
 
-function newQuestion() {
+function newQuestion(g) {
     questionResult.classList.remove("active");
     quiz.classList.add("active");
     stopGame = false;
     document.getElementById('question-number').innerText = qstnNumber + 1
-    setQuestion();
+    setQuestion(g);
 
     seconds = 0;
 
@@ -113,7 +117,8 @@ function newQuestion() {
     /**
      * The below function will set the question and answer values for the quiz
      */
-    function setQuestion() {
+    function setQuestion(g) {
+        if(g=0){
         document.getElementById('question').innerHTML = questions[qstnNumber].question;
         let answerOptions = [];
         answerOptions = Object.values(questions[qstnNumber])
@@ -121,10 +126,21 @@ function newQuestion() {
         for (let i = 0; i < answerDivs.length; i++) {
             answerDivs[i].innerHTML = answerOptions[i];
         }
+    }
+    else{
+        document.getElementById('question').innerHTML = musicquestions[qstnNumber].question;
+        let answerOptions = [];
+        answerOptions = Object.values(musicQuestions[qstnNumber])
+        answerOptions = answerOptions.slice(2, 6);
+        for (let i = 0; i < answerDivs.length; i++) {
+            answerDivs[i].innerHTML = answerOptions[i];
+    }
         for (let bar of countdownBar) {
             bar.style.backgroundColor = "green";
         }
+ 
     }
+}
 
     setQuestion();
 }
