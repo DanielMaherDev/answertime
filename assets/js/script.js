@@ -17,11 +17,13 @@ let seconds = 0;
 const countdownBar = document.getElementsByClassName('progress')
 const startButton = document.getElementById('start-button');
 const gameType = document.getElementsByClassName('game-type');
+const gameTypes = document.getElementById('game-types')
 let gameTypeNumber;
 
 startButton.addEventListener('click', chooseGame);
 
 function chooseGame(){
+gameTypes.classList.add('active')
 for(let g=0; g<gameType.length; g++){
     gameType[g].addEventListener('click', function(){
          gameTypeNumber= g;
@@ -133,10 +135,11 @@ function newQuestion() {
         for (let i = 0; i < answerDivs.length; i++) {
             answerDivs[i].innerHTML = answerOptions[i];
     }
-        for (let bar of countdownBar) {
-            bar.style.backgroundColor = "green";
-        }
+      
  
+    }
+    for (let bar of countdownBar) {
+        bar.style.backgroundColor = "green";
     }
 }
 console.log(gameTypeNumber)
