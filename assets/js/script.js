@@ -58,7 +58,8 @@ document.addEventListener("DOMContentLoaded", function () {
         (function (index) {
             answerDivs[index].addEventListener("click", function () {
                 let selectedAnswer = answerDivs[index];
-                answerSelected(selectedAnswer)
+                stopGame = true;
+                answerSelected(selectedAnswer);
             })
         })(i);
 
@@ -115,9 +116,9 @@ function newQuestion() {
     quiz.classList.add("active");
     stopGame = false;
     document.getElementById('question-number').innerText = qstnNumber + 1;
-    setQuestion();
-
     seconds = 0;
+
+    setQuestion();
 
     ; /* declared outside the countdown function as it repeats */
     /** This is the function which controls the timer, and timeout */
@@ -128,8 +129,11 @@ function newQuestion() {
             countdownBarStage.style.backgroundColor = "red";
         } else {
             return;
+            
         }
-        setTimeout(countdown, 1000);
+        setTimeout(function(){
+            countdown();
+        }, 1000);
 
     }
     setTimeout(countdown, 1000);
@@ -140,7 +144,8 @@ function newQuestion() {
      * The below function will set the question and answer values for the quiz
      */
     function setQuestion() {
-        if(gameTypeNumber== 0){
+        if (qstnNumber<10){
+        if(gameTypeNumber == 0){
         document.getElementById('question').innerHTML = questions[qstnNumber].question;
         let answerOptions = [];
         answerOptions = Object.values(questions[qstnNumber])
@@ -157,9 +162,11 @@ function newQuestion() {
         for (let i = 0; i < answerDivs.length; i++) {
             answerDivs[i].innerHTML = answerOptions[i];
     }
-      
- 
     }
+}
+else{
+    console.log('game over')
+}
     for (let bar of countdownBar) {
         bar.style.backgroundColor = "green";
     }
