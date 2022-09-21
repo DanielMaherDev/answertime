@@ -2,12 +2,14 @@ import {musicQuestions,
     questions
 } from "./questions.js";
 
-
 /**
  * This function runs when the user has selected to start the game. 
  */
 const backgroundMusic = new Audio('./answertime/../assets/audio/background-audio.mp3');
 const clickSound = new Audio('./answertime/../assets/audio/click.wav');
+const optionSound = new Audio('./answertime/../assets/audio/option.mp3');
+const correctSound = new Audio('./answertime/../assets/audio/correct.mp3');
+const incorrectSound = new Audio('./answertime/../assets/audio/incorrect.mp3');
 const answerDivs = document.getElementsByClassName('answer');
 const quiz = document.getElementsByClassName("quiz-container")[0];
 const welcomeScreen = document.getElementById("welcome-screen");
@@ -25,14 +27,31 @@ const buttons = document.getElementsByClassName('divbtn');
 startButton.addEventListener('click', chooseGame);
 const soundOn = document.getElementById('music');
 let selectedAnswer = "";
+let correctAnswer;
 soundOn.addEventListener('click', function(){
     backgroundMusic.muted = true;
 })
 for(let i=0; i< buttons.length; i++){
 buttons[i].addEventListener('click', function(){
-    clickSound.play();
+    if(buttons[i].classList == 'answer divbtn' && buttons[i].id != correctAnswer){
+        incorrectSound.play();
+    }
+    else if (buttons[i].classList == 'answer divbtn'){
+        correctSound.play();
+    }
+  
+    else{
+        clickSound.play();
+
+    }
 });
 }
+
+for(let i=0; i< buttons.length; i++){
+    buttons[i].addEventListener('mouseover', function(){
+        optionSound.play();
+    });
+    }
 
 function chooseGame(){
 welcomeScreen.classList.add('exit-animation')
@@ -152,7 +171,8 @@ function newQuestion() {
     function setQuestion() {
         if (qstnNumber<10){
         if(gameTypeNumber == 0){
-        document.getElementById('question').innerHTML = questions[qstnNumber].question;
+        document.getElementById('question').innerHTML = questions[qstnNumber].question; 
+        correctAnswer = questions[qstnNumber].correct;
         let answerOptions = [];
         answerOptions = Object.values(questions[qstnNumber])
         answerOptions = answerOptions.slice(2, 6);
