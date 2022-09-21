@@ -25,7 +25,7 @@ const gameTypes = document.getElementById('game-types')
 let gameTypeNumber;
 const buttons = document.getElementsByClassName('divbtn');
 startButton.addEventListener('click', chooseGame);
-const soundOn = document.getElementById('music');
+const soundOn = document.getElementById('sound');
 let selectedAnswer = "";
 let correctAnswer;
 soundOn.addEventListener('click', function(){

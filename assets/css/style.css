@@ -3,7 +3,7 @@
 	box-sizing: border-box;
 }
 
-#music{
+#sound{
     width: 3rem;
     height: 3rem;
     position: fixed;
@@ -47,7 +47,16 @@ body {
     text-align: center;
     padding-top: 50px;
     height: 50%;
-    font-size: 3rem;
+    font-size: 2rem;
+}
+
+#choose-title{
+    font-size: 1.5rem;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    margin: 4rem auto;
+    background: rgba(255, 255, 255, 0.7);
 }
 
 
@@ -83,20 +92,17 @@ body {
     align-items: flex-start;
     align-content: flex-start;
     width: 100%;
-    height: 100vh;
     overflow: auto;
     flex-direction: row;
 }
 
 .game-type{
     border-radius: 25px;
-    height: 50%;
     padding: 0 20px;
     margin: 5px;
     background-color: rgba(255, 255, 255, 0.9);
     text-align: center;
     font-size: 40px;
-    padding-top: calc(50% - 80px)
 }
 
 .active{
