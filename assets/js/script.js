@@ -55,7 +55,6 @@ for(let i=0; i< buttons.length; i++){
 
 function chooseGame(){
 welcomeScreen.classList.add('exit-animation')
-
 setTimeout(function(){
     gameTypes.classList.add('active', 'enter-animation')
 welcomeScreen.classList.remove('active')
@@ -117,13 +116,16 @@ if(qstnNumber<9){
 }
 
 function startGame() {
+    gameTypes.classList.remove('enter-animation');
+    gameTypes.classList.add('exit-animation');
+    setTimeout(function(){quiz.classList.add('enter-animation', 'active');
+    gameTypes.classList.remove('active')
+    },1000)
+
     /*play audio music in background*/
     backgroundMusic.play();
 
     /* hide the welcome screen and show the main quiz container */
-    quiz.classList.add("active");
-    gameTypes.classList.remove("active");
-
     welcomeScreen.classList.remove("active");
 
     newQuestion();
@@ -135,7 +137,6 @@ function newQuestion() {
     Correct!<br>
     +<span id="current-question-score"></span> points`
     questionResult.classList.remove("active");
-    quiz.classList.add("active");
     stopGame = false;
     document.getElementById('question-number').innerText = qstnNumber + 1;
     seconds = 0;
