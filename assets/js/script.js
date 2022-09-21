@@ -12,6 +12,7 @@ const answerDivs = document.getElementsByClassName('answer');
 const quiz = document.getElementsByClassName("quiz-container")[0];
 const welcomeScreen = document.getElementById("welcome-screen");
 const questionResult = document.getElementById("question-result");
+const resultText = document.getElementById("result-text");
 const nextQuestion = document.getElementById('next-question');
 let qstnNumber = 0;
 let seconds = 0;
@@ -86,9 +87,7 @@ function answerSelected(answer) {
 
 
     } else {
-        document.getElementById('question-result').innerHTML = `Incorrect Answer
-        <div id="next-question" class="divbtn">NEXT</div>`;
-    }
+        document.getElementById('result-text').innerHTML = 'Incorrect Answer'   }
     seconds = 0;
 
 
