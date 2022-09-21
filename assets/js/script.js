@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function answerSelected(answer) {
 
-
+if(qstnNumber<9){
     stopGame = true;
     questionResult.classList.add("active");
     quiz.classList.remove("active");
@@ -90,7 +90,10 @@ function answerSelected(answer) {
     } else {
         document.getElementById('result-text').innerHTML = 'Incorrect Answer'   }
     seconds = 0;
-
+    }
+    else{
+        quiz.innerHTML = `game over`
+    }
 
 }
 
@@ -168,7 +171,7 @@ function newQuestion() {
     }
 }
 else{
-    console.log('game over')
+    return;
 }
     for (let bar of countdownBar) {
         bar.style.backgroundColor = "green";
