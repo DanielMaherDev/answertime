@@ -24,7 +24,7 @@ let gameTypeNumber;
 const buttons = document.getElementsByClassName('divbtn');
 startButton.addEventListener('click', chooseGame);
 const soundOn = document.getElementById('music');
-
+let selectedAnswer = "";
 soundOn.addEventListener('click', function(){
     backgroundMusic.muted = true;
 })
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (var i = 0; i < answerDivs.length; i++) {
         (function (index) {
             answerDivs[index].addEventListener("click", function () {
-                let selectedAnswer = answerDivs[index];
+                selectedAnswer = answerDivs[index];
                 stopGame = true;
                 answerSelected(selectedAnswer);
             })
@@ -117,27 +117,30 @@ function newQuestion() {
     stopGame = false;
     document.getElementById('question-number').innerText = qstnNumber + 1;
     seconds = 0;
-
     setQuestion();
+    countdown();
 
     ; /* declared outside the countdown function as it repeats */
     /** This is the function which controls the timer, and timeout */
     function countdown() {
-        if (seconds < 10 && stopGame != true) {
-            ++seconds;
-            let countdownBarStage = document.getElementById(`seconds${seconds}`)
-            countdownBarStage.style.backgroundColor = "red";
-        } else {
-            return;
+        if (selectedAnswer == ""){
+            var timer = setInterval(function(){  
+                if (seconds < 10 && stopGame != true) {
+                ++seconds;
+                let countdownBarStage = document.getElementById(`seconds${seconds}`)
+                countdownBarStage.style.backgroundColor = "red";
+            } }, 1000)
+            
             
         }
-        setTimeout(function(){
-            countdown();
-        }, 1000);
-
+      
+    
+        else {
+            console.log(selectedAnswer)
+        clearInterval(timer);
+    return;
     }
-    setTimeout(countdown, 1000);
-
+    }
 
 
     /**
