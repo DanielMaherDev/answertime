@@ -119,16 +119,15 @@ function startGame() {
     gameTypes.classList.remove('enter-animation');
     gameTypes.classList.add('exit-animation');
     setTimeout(function(){quiz.classList.add('enter-animation', 'active');
-    gameTypes.classList.remove('active')
+    gameTypes.classList.remove('active');
+    newQuestion();
+
     },1000)
 
     /*play audio music in background*/
     backgroundMusic.play();
 
     /* hide the welcome screen and show the main quiz container */
-    welcomeScreen.classList.remove("active");
-
-    newQuestion();
 }
 let stopGame;
 
@@ -136,6 +135,7 @@ function newQuestion() {
     resultText.innerHTML = `  You answered:<br> <strong><span id="answered"></span></strong> in <span id="seconds"></span> seconds! <br>
     Correct!<br>
     +<span id="current-question-score"></span> points`
+    quiz.classList.add('active');
     questionResult.classList.remove("active");
     stopGame = false;
     document.getElementById('question-number').innerText = qstnNumber + 1;
@@ -170,6 +170,7 @@ function newQuestion() {
      * The below function will set the question and answer values for the quiz
      */
     function setQuestion() {
+        
         if (qstnNumber<10){
         if(gameTypeNumber == 0){
         document.getElementById('question').innerHTML = questions[qstnNumber].question; 
