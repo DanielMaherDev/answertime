@@ -108,6 +108,9 @@ function startGame() {
 let stopGame;
 
 function newQuestion() {
+    resultText.innerHTML = `  You answered:<br> <strong><span id="answered"></span></strong> in <span id="seconds"></span> seconds! <br>
+    Correct!<br>
+    +<span id="current-question-score"></span> points`
     questionResult.classList.remove("active");
     quiz.classList.add("active");
     stopGame = false;
