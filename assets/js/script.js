@@ -17,6 +17,7 @@ const questionResult = document.getElementById("question-result");
 const resultText = document.getElementById("result-text");
 const nextQuestion = document.getElementById('next-question');
 let qstnNumber = 0;
+let currentQuestion = document.getElementById('question-number').innerText
 let seconds = 0;
 const countdownBar = document.getElementsByClassName('progress')
 const startButton = document.getElementById('start-button');
@@ -28,6 +29,8 @@ startButton.addEventListener('click', chooseGame);
 const soundOn = document.getElementById('sound');
 let selectedAnswer = "";
 let correctAnswer;
+let scoreAmount = parseInt(document.getElementById('score-amount').innerText)
+
 soundOn.addEventListener('click', function(){
     backgroundMusic.muted = true;
 })
@@ -46,6 +49,34 @@ buttons[i].addEventListener('click', function(){
     }
 });
 }
+
+function newGame(){
+        welcomeScreen.classList.add('active');
+        quiz.classList.remove('active');
+        quiz.innerHTML = `   <div id="">QUESTION <span id="question-number">1</span></div>
+        <div id="progress-bar">
+            <div class="progress" id="seconds10"></div>
+            <div class="progress" id="seconds9"></div>
+            <div class="progress" id="seconds8"></div>
+            <div class="progress" id="seconds7"></div>
+            <div class="progress" id="seconds6"></div>
+            <div class="progress" id="seconds5"></div>
+            <div class="progress" id="seconds4"></div>
+            <div class="progress" id="seconds3"></div>
+            <div class="progress" id="seconds2"></div>
+            <div class="progress" id="seconds1"></div>
+
+        </div>
+        <div class="quiz">
+            <div id="question"></div>
+            <div class="answer divbtn" data-type="answer" id="A"></div>
+            <div class="answer divbtn" data-type="answer" id="B"></div>
+            <div class="answer divbtn" data-type="answer" id="C"></div>
+            <div class="answer divbtn" data-type="answer" id="D"></div>
+        </div>
+
+        <div class="score">Your Score: <span id="score-amount">0</span>/100</div>`
+};
 
 for(let i=0; i< buttons.length; i++){
     buttons[i].addEventListener('mouseover', function(){
@@ -98,7 +129,6 @@ if(qstnNumber<9){
     if (answer.getAttribute('id') == questions[qstnNumber].correct) {
         document.getElementById('answered').innerText = answer.innerText;
 
-        let scoreAmount = parseInt(document.getElementById('score-amount').innerText)
         scoreAmount = scoreAmount += (10 - seconds)
         document.getElementById('score-amount').innerText = scoreAmount;
         document.getElementById('seconds').innerText = seconds +1;
@@ -110,7 +140,10 @@ if(qstnNumber<9){
     seconds = 0;
     }
     else{
-        quiz.innerHTML = `game over`
+        quiz.innerHTML = `game over<br> You scored ${scoreAmount}/100
+        <button id="new-game">New Game</button>`
+
+        document.getElementById('new-game').addEventListener('click', newGame)
     }
 
 }
@@ -138,7 +171,7 @@ function newQuestion() {
     quiz.classList.add('active');
     questionResult.classList.remove("active");
     stopGame = false;
-    document.getElementById('question-number').innerText = qstnNumber + 1;
+    currentQuestion = qstnNumber + 1;
     seconds = 0;
     setQuestion();
     countdown();
@@ -149,17 +182,12 @@ function newQuestion() {
         if (selectedAnswer == ""){
             var timer = setInterval(function(){  
                 if (seconds < 10 && stopGame != true) {
-                ++seconds;
+                    ++seconds;
                 let countdownBarStage = document.getElementById(`seconds${seconds}`)
                 countdownBarStage.style.backgroundColor = "red";
-            } }, 1000)
-            
-            
-        }
-      
-    
+            } }, 1000)          
+        } 
         else {
-            console.log(selectedAnswer)
         clearInterval(timer);
     return;
     }
