@@ -180,17 +180,14 @@ function newQuestion() {
     /** This is the function which controls the timer, and timeout */
     function countdown() {
         if (selectedAnswer == ""){
-            var timer = setInterval(function(){  
+            var timer = setTimeout(function(){  
                 if (seconds < 10 && stopGame != true) {
                     ++seconds;
                 let countdownBarStage = document.getElementById(`seconds${seconds}`)
                 countdownBarStage.style.backgroundColor = "red";
             } }, 1000)          
         } 
-        else {
-        clearInterval(timer);
-    return;
-    }
+     
     }
 
 
