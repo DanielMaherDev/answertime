@@ -202,7 +202,7 @@ if (seconds < 10 && stopGame != true) {
     console.log(seconds)
     ++seconds;
         let countdownBarStage = document.getElementById(`seconds${seconds}`)
-    countdownBarStage.style.backgroundColor = "red";
+    countdownBarStage.style.backgroundColor = "black";
   } else {
     clearInterval(interval);
     console.log(interval)
@@ -240,7 +240,7 @@ if (seconds < 10 && stopGame != true) {
             return;
         }
         for (let bar of countdownBar) {
-            bar.style.backgroundColor = "green";
+            bar.style.backgroundColor = "#cbf078";
         }
     }
     console.log(gameTypeNumber)
