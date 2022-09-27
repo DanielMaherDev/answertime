@@ -31,6 +31,8 @@ const soundOn = document.getElementById('sound');
 let selectedAnswer = "";
 let correctAnswer;
 let scoreAmount = parseInt(document.getElementById('score-amount').innerText)
+var cD = 100, interval, running = false;
+
 
 soundOn.addEventListener('click', function () {
     backgroundMusic.muted = true;
@@ -103,9 +105,11 @@ document.addEventListener("DOMContentLoaded", function () {
     for (var i = 0; i < answerDivs.length; i++) {
         (function (index) {
             answerDivs[index].addEventListener("click", function () {
-                selectedAnswer = answerDivs[index];
+                nextQuestion.classList.add('enter-animation')
+                                selectedAnswer = answerDivs[index];
                 stopGame = true;
                 answerSelected(selectedAnswer);
+
             })
         })(i);
 
@@ -175,24 +179,35 @@ function newQuestion() {
     currentQuestion = qstnNumber + 1;
     seconds = 0;
     setQuestion();
-    countdown();
+    interval = setInterval(countdown, 1000); /* test code */
 
     ; /* declared outside the countdown function as it repeats */
     /** This is the function which controls the timer, and timeout */
     function countdown() {
-        if (selectedAnswer == "") {
-            
-            setInterval(function() {
+      /*  if (selectedAnswer == "") {
+
+            setInterval(function () {
                 if (seconds < 10 && stopGame != true) {
-                    console.log(seconds)
                     ++seconds;
-                    let countdownBarStage = document.getElementById(`seconds${seconds-1}`)
+                    let countdownBarStage = document.getElementById(`seconds${seconds}`)
                     countdownBarStage.style.backgroundColor = "red";
                 } else
                     seconds = 0;
                 return;
             }, 1000)
         }
+*/
+        
+if (seconds < 10 && stopGame != true) { 
+    console.log(seconds)
+    ++seconds;
+        let countdownBarStage = document.getElementById(`seconds${seconds}`)
+    countdownBarStage.style.backgroundColor = "red";
+  } else {
+    clearInterval(interval);
+    console.log(interval)
+    running = false;
+  }
 
     }
 
