@@ -53,7 +53,7 @@ for (let i = 0; i < buttons.length; i++) {
 function newGame() {
     welcomeScreen.classList.add('active');
     quiz.classList.remove('active');
-    quiz.innerHTML = `   <div id="">QUESTION <span id="question-number">1</span></div>
+    /*quiz.innerHTML = `   <div id="">QUESTION <span id="question-number">1</span></div>
         <div id="progress-bar">
             <div class="progress" id="seconds10"></div>
             <div class="progress" id="seconds9"></div>
@@ -75,7 +75,7 @@ function newGame() {
             <div class="answer divbtn" data-type="answer" id="D"></div>
         </div>
 
-        <div class="score">Your Score: <span id="score-amount">0</span>/100</div>`
+        <div class="score">Your Score: <span id="score-amount">0</span>/100</div>` */
 };
 
 for (let i = 0; i < buttons.length; i++) {
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function answerSelected(answer) {
-
+    clearInterval(interval);
     if (qstnNumber < 9) {
         stopGame = true;
         questionResult.classList.add("active");
@@ -144,9 +144,9 @@ function answerSelected(answer) {
     } else {
         document.getElementById('score-amount').innerText = scoreAmount;
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
-        quiz.innerHTML = `game over<br> You scored ${scoreAmount}/100
+       /* quiz.innerHTML = `game over<br> You scored ${scoreAmount}/100
         <button id="new-game">New Game</button>`
-
+*/
         document.getElementById('new-game').addEventListener('click', newGame)
     }
 
@@ -184,19 +184,6 @@ function newQuestion() {
     ; /* declared outside the countdown function as it repeats */
     /** This is the function which controls the timer, and timeout */
     function countdown() {
-      /*  if (selectedAnswer == "") {
-
-            setInterval(function () {
-                if (seconds < 10 && stopGame != true) {
-                    ++seconds;
-                    let countdownBarStage = document.getElementById(`seconds${seconds}`)
-                    countdownBarStage.style.backgroundColor = "red";
-                } else
-                    seconds = 0;
-                return;
-            }, 1000)
-        }
-*/
         
 if (seconds < 10 && stopGame != true) { 
     console.log(seconds)
