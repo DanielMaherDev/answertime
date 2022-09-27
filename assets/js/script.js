@@ -239,7 +239,7 @@ sec++
             return;
         }
         for (let bar of countdownBar) {
-            bar.style.backgroundColor = "#cbf078";
+            bar.style.backgroundColor = "green";
         }
     }
     console.log(gameTypeNumber)
