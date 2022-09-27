@@ -19,7 +19,7 @@ const resultText = document.getElementById("result-text");
 const nextQuestion = document.getElementById('next-question');
 let qstnNumber = 0;
 let currentQuestion = document.getElementById('question-number').innerText
-let seconds = 0;
+let seconds = 10;
 const countdownBar = document.getElementsByClassName('progress')
 const startButton = document.getElementById('start-button');
 const gameType = document.getElementsByClassName('game-type');
@@ -31,24 +31,54 @@ const soundOn = document.getElementById('sound');
 let selectedAnswer = "";
 let correctAnswer;
 let scoreAmount = parseInt(document.getElementById('score-amount').innerText)
-var cD = 100, interval, running = false;
+var interval;
+let stopGame = false;
+
+document.addEventListener("DOMContentLoaded", function () {
+    for (var i = 0; i < answerDivs.length; i++) {
+        (function (index) {
+            answerDivs[index].addEventListener("click", function () {
+                setTimeout(function(){
+                    nextQuestion.classList.add('enter-animation')
+                    selectedAnswer = answerDivs[index];
+                    stopGame = true;
+                    answerSelected(selectedAnswer);
+                },1000)
+              
+
+            })
+        })(i);
+
+    }
+    nextQuestion.addEventListener("click", function () {
+        qstnNumber += 1;
+        newQuestion()
+    })
+
+    soundOn.addEventListener('click', function () {
+        backgroundMusic.muted = true;
+    })
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function () {
+            if (buttons[i].classList == 'answer divbtn' && buttons[i].id != correctAnswer) {
+                incorrectSound.play();
+            } else if (buttons[i].classList == 'answer divbtn') {
+                correctSound.play();
+            } else {
+                clickSound.play();
+
+            }
+        });
+    }
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('mouseover', function () {
+            optionSound.play();
+        });
+    }
+});
 
 
-soundOn.addEventListener('click', function () {
-    backgroundMusic.muted = true;
-})
-for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', function () {
-        if (buttons[i].classList == 'answer divbtn' && buttons[i].id != correctAnswer) {
-            incorrectSound.play();
-        } else if (buttons[i].classList == 'answer divbtn') {
-            correctSound.play();
-        } else {
-            clickSound.play();
-
-        }
-    });
-}
 
 function newGame() {
     welcomeScreen.classList.add('active');
@@ -78,12 +108,6 @@ function newGame() {
         <div class="score">Your Score: <span id="score-amount">0</span>/100</div>`
 };
 
-for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('mouseover', function () {
-        optionSound.play();
-    });
-}
-
 function chooseGame() {
     welcomeScreen.classList.add('exit-animation')
     setTimeout(function () {
@@ -101,24 +125,6 @@ function chooseGame() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    for (var i = 0; i < answerDivs.length; i++) {
-        (function (index) {
-            answerDivs[index].addEventListener("click", function () {
-                nextQuestion.classList.add('enter-animation')
-                                selectedAnswer = answerDivs[index];
-                stopGame = true;
-                answerSelected(selectedAnswer);
-
-            })
-        })(i);
-
-    }
-    nextQuestion.addEventListener("click", function () {
-        qstnNumber += 1;
-        newQuestion()
-    })
-});
 
 
 function answerSelected(answer) {
@@ -133,17 +139,16 @@ function answerSelected(answer) {
             scoreAmount = scoreAmount += (11 - seconds)
             document.getElementById('score-amount').innerText = scoreAmount;
             document.getElementById('seconds').innerText = seconds;
-            document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
+            document.getElementById('current-question-score').innerText = 11 - seconds;
 
 
         } else {
             scoreAmount = scoreAmount += (11 - seconds)
             document.getElementById('result-text').innerHTML = 'Incorrect Answer'
         }
-        seconds = 0;
     } else {
         document.getElementById('score-amount').innerText = scoreAmount;
-        document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
+        document.getElementById('current-question-score').innerText = 11 - seconds;
         quiz.innerHTML = `game over<br> You scored ${scoreAmount}/100
         <button id="new-game">New Game</button>`
 
@@ -159,7 +164,6 @@ function startGame() {
         quiz.classList.add('enter-animation', 'active');
         gameTypes.classList.remove('active');
         newQuestion();
-
     }, 1000)
 
     /*play audio music in background*/
@@ -167,7 +171,7 @@ function startGame() {
 
     /* hide the welcome screen and show the main quiz container */
 }
-let stopGame;
+
 
 function newQuestion() {
     resultText.innerHTML = `  You answered:<br> <strong><span id="answered"></span></strong> in <span id="seconds"></span> seconds! <br>
@@ -175,41 +179,34 @@ function newQuestion() {
     +<span id="current-question-score"></span> points`
     quiz.classList.add('active');
     questionResult.classList.remove("active");
-    stopGame = false;
     currentQuestion = qstnNumber + 1;
-    seconds = 0;
-    setQuestion();
-    interval = setInterval(countdown, 1000); /* test code */
+    seconds = 10;
+    
+/***
+ * The below code was taken from codingnepalweb.com/quiz-app-with-timer-javascript/
+ */
+ startTimer(10); //calling startTimer function
 
-    ; /* declared outside the countdown function as it repeats */
-    /** This is the function which controls the timer, and timeout */
-    function countdown() {
-      /*  if (selectedAnswer == "") {
+ let sec = 0;
 
-            setInterval(function () {
-                if (seconds < 10 && stopGame != true) {
-                    ++seconds;
-                    let countdownBarStage = document.getElementById(`seconds${seconds}`)
-                    countdownBarStage.style.backgroundColor = "red";
-                } else
-                    seconds = 0;
-                return;
-            }, 1000)
+ function startTimer(time){
+     time = 10;
+    stopGame = false;
+    let counter = setInterval(timer, 1000);
+    console.log(`question ${qstnNumber}`)
+    function timer(){
+        console.log(`second ${sec}`)
+
+            countdownBar[sec].style.backgroundColor = "black";
+sec++
+  if(time < 0 || stopGame == true){ //if timer is less than 0
+            clearInterval(counter); //clear counter
         }
-*/
-        
-if (seconds < 10 && stopGame != true) { 
-    console.log(seconds)
-    ++seconds;
-        let countdownBarStage = document.getElementById(`seconds${seconds}`)
-    countdownBarStage.style.backgroundColor = "black";
-  } else {
-    clearInterval(interval);
-    console.log(interval)
-    running = false;
-  }
-
     }
+}
+
+    setQuestion();
+    /** This is the function which controls the timer, and timeout */
 
 
     /**

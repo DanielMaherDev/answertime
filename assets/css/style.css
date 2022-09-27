@@ -126,7 +126,7 @@ body {
 #progress-bar div{
 height: 100%;
 width: 10%;
-background-color: green;
+background-color: #cbf078;
 }
 
 #question{
@@ -181,5 +181,9 @@ background-color: green;
     }
 }
 
-#next-question{
+@media screen and (min-width:768px) {
+body > div{
+    max-width: 50%;
+    margin: 0 auto;
+}    
 }
