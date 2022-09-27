@@ -38,12 +38,10 @@ document.addEventListener("DOMContentLoaded", function () {
     for (var i = 0; i < answerDivs.length; i++) {
         (function (index) {
             answerDivs[index].addEventListener("click", function () {
-                setTimeout(function(){
                     nextQuestion.classList.add('enter-animation')
                     selectedAnswer = answerDivs[index];
                     stopGame = true;
                     answerSelected(selectedAnswer);
-                },1000)
               
 
             })
@@ -190,17 +188,21 @@ function newQuestion() {
  let sec = 0;
 
  function startTimer(time){
+    let counter = setInterval(timer, 1000);
+    clearInterval(counter); //clear counter
      time = 10;
     stopGame = false;
-    let counter = setInterval(timer, 1000);
+     counter = setInterval(timer, 1000);
     console.log(`question ${qstnNumber}`)
     function timer(){
+        
         console.log(`second ${sec}`)
 
             countdownBar[sec].style.backgroundColor = "black";
 sec++
-  if(time < 0 || stopGame == true){ //if timer is less than 0
+  if(time < 0 || stopGame == true || sec > 9){ //if timer is less than 0
             clearInterval(counter); //clear counter
+         sec = 0;
         }
     }
 }
