@@ -36,6 +36,12 @@ var cD = 100,
 let gameNumber = 0;
 const maxScoreText = document.getElementById('max-score');
 let maxScoreAmount;
+const howToPlay = document.getElementById('how-to-play');
+const howToClose = document.getElementById('how-to-close');
+const instructions = document.getElementById('instructions');
+
+
+
 soundOn.addEventListener('click', function () {
     backgroundMusic.muted = true;
     incorrectSound.muted = true;
@@ -109,6 +115,15 @@ document.addEventListener("DOMContentLoaded", function () {
         })(i);
 
     }
+
+    howToPlay.addEventListener('click', function(){
+        instructions.classList.add('active');
+    })
+
+    howToClose.addEventListener('click', function(){
+        instructions.classList.remove('active');
+    })
+
     nextQuestion.addEventListener("click", function () {
         qstnNumber += 1;
         newQuestion()
