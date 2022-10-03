@@ -126,7 +126,7 @@ function answerSelected(answer) {
 }
 
 function startGame() {
-
+    backgroundMusic.play();
     gameTypes.classList.remove('enter-animation');
     gameTypes.classList.add('exit-animation');
     setTimeout(function () {
@@ -137,7 +137,6 @@ function startGame() {
     }, 1000)
 
     /*play audio music in background*/
-    backgroundMusic.play();
 
     /* hide the welcome screen and show the main quiz container */
 }
@@ -163,7 +162,6 @@ function newQuestion() {
      * The below function will set the question and answer values for the quiz
      */
     function setQuestion() {
-
         if (qstnNumber < 10) {
             if (gameTypeNumber == 0) {
                 document.getElementById('question').innerHTML = questions[qstnNumber].question;
