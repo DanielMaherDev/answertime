@@ -199,11 +199,14 @@ function newQuestion() {
 }
 /* this is being called twice on the newGame function ??*/
 function countdown() {
-    if (seconds < 10 && stopGame != true) {
-            ++seconds;
-        let countdownBarStage = document.getElementById(`seconds${seconds}`)
-        countdownBarStage.style.backgroundColor = "black";
-    } else {
+    if(seconds == 9){
+        quiz.innerHTML= `times up`;
+    }
+    else if (seconds < 10 && stopGame != true) {
+        ++seconds;
+    let countdownBarStage = document.getElementById(`seconds${seconds}`)
+    countdownBarStage.style.backgroundColor = "black";
+} else {
         clearInterval(interval);
         running = false;
     }
