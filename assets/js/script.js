@@ -34,7 +34,8 @@ let scoreAmount = parseInt(document.getElementById('score-amount').innerText)
 var cD = 100,
     interval, running = false;
 let gameNumber = 0;
-
+const maxScoreText = document.getElementById('max-score');
+let maxScoreAmount;
 soundOn.addEventListener('click', function () {
     backgroundMusic.muted = true;
     incorrectSound.muted = true;
@@ -87,6 +88,8 @@ function chooseGame() {
     for (let g = 0; g < gameType.length; g++) {
         gameType[g].addEventListener('click', function () {
             gameTypeNumber = g;
+            maxScoreAmount = games[g].length * 10;
+            maxScoreText.innerText = maxScoreAmount;
             startGame()
         });
     }
@@ -139,7 +142,7 @@ function answerSelected(answer) {
         seconds = 0;
     } else {
         scoreAmount += qstnScore;
-        quiz.innerHTML = `game over<br> You scored ${scoreAmount}/100
+        quiz.innerHTML = `game over<br> You scored ${scoreAmount}/${maxScoreAmount}
         <button id="new-game">New Game</button>`
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
         document.getElementById('new-game').addEventListener('click', function () {
