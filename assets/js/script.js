@@ -159,6 +159,7 @@ function newQuestion() {
     currentQuestion.innerText = qstnNumber + 1;
     seconds = 0;
     setQuestion();
+    clearInterval(interval)
     interval = setInterval(function(){
         countdown()}, 1000); /* test code */
     /* declared outside the countdown function as it repeats */
