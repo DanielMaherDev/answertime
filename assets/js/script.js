@@ -18,7 +18,7 @@ const questionResult = document.getElementById("question-result");
 const resultText = document.getElementById("result-text");
 const nextQuestion = document.getElementById('next-question');
 let qstnNumber = 0;
-let currentQuestion = document.getElementById('question-number').innerText
+let currentQuestion = document.getElementById('question-number');
 let seconds = 0;
 const countdownBar = document.getElementsByClassName('progress')
 const startButton = document.getElementById('start-button');
@@ -31,9 +31,9 @@ const soundOn = document.getElementById('sound');
 let selectedAnswer = "";
 let correctAnswer;
 let scoreAmount = parseInt(document.getElementById('score-amount').innerText)
-let quizResult = document.getElementById('quiz-result')
 var cD = 100,
-    interval;
+    interval, running = false;
+let gameNumber = 0;
 
 soundOn.addEventListener('click', function () {
     backgroundMusic.muted = true;
@@ -50,6 +50,7 @@ for (let i = 0; i < buttons.length; i++) {
         }
     });
 }
+
 
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('mouseover', function () {
@@ -97,25 +98,23 @@ document.addEventListener("DOMContentLoaded", function () {
 function answerSelected(answer) {
     stopGame = true;
     clearInterval(interval);
-    if (qstnNumber < 9) {
+    if (qstnNumber + 1 < questions.length) {
         questionResult.classList.add("active");
         quiz.classList.remove("active");
         if (answer.getAttribute('id') == questions[qstnNumber].correct) {
             document.getElementById('answered').innerText = answer.innerText;
-
-            scoreAmount = scoreAmount += (11 - seconds)
+            scoreAmount = scoreAmount + (10 - seconds)
             document.getElementById('score-amount').innerText = scoreAmount;
             document.getElementById('seconds').innerText = seconds;
-            document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
+            document.getElementById('current-question-score').innerText = Math.floor(10 - seconds);
 
 
         } else {
-            scoreAmount = scoreAmount += (11 - seconds)
             document.getElementById('result-text').innerHTML = 'Incorrect Answer'
         }
         seconds = 0;
     } else {
-        quizResult.innerHTML = `game over<br> You scored ${scoreAmount}/100
+        quiz.innerHTML = `game over<br> You scored ${scoreAmount}/100
         <button id="new-game">New Game</button>`
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
         document.getElementById('new-game').addEventListener('click', function () {
@@ -134,18 +133,17 @@ function startGame() {
         quiz.classList.add('enter-animation', 'active');
         gameTypes.classList.remove('active');
         newQuestion();
+
     }, 1000)
+
+    /*play audio music in background*/
+    backgroundMusic.play();
+
+    /* hide the welcome screen and show the main quiz container */
 }
-
-/*play audio music in background*/
-backgroundMusic.play();
-
-/* hide the welcome screen and show the main quiz container */
-
 let stopGame;
 
 function newQuestion() {
-
 
     resultText.innerHTML = `  You answered:<br> <strong><span id="answered"></span></strong> in <span id="seconds"></span> seconds! <br>
     Correct!<br>
@@ -153,13 +151,11 @@ function newQuestion() {
     quiz.classList.add('active');
     questionResult.classList.remove("active");
     stopGame = false;
-    currentQuestion = qstnNumber + 1;
+    currentQuestion.innerText = qstnNumber + 1;
     seconds = 0;
     setQuestion();
-    interval = setInterval(function () {
-        console.log('newquestion running once');
-        countdown()
-    }, 1000); /* test code */
+    interval = setInterval(function(){
+        countdown()}, 1000); /* test code */
     /* declared outside the countdown function as it repeats */
     /** This is the function which controls the timer, and timeout */
 
@@ -194,20 +190,18 @@ function newQuestion() {
             bar.style.backgroundColor = "#cbf078";
         }
     }
-    console.log(gameTypeNumber)
 
     setQuestion();
 }
 /* this is being called twice on the newGame function ??*/
 function countdown() {
     if (seconds < 10 && stopGame != true) {
-        console.log(seconds)
             ++seconds;
         let countdownBarStage = document.getElementById(`seconds${seconds}`)
         countdownBarStage.style.backgroundColor = "black";
     } else {
         clearInterval(interval);
-        console.log(interval)
+        running = false;
     }
 
 }
