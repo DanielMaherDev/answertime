@@ -37,6 +37,10 @@ let gameNumber = 0;
 
 soundOn.addEventListener('click', function () {
     backgroundMusic.muted = true;
+    incorrectSound.muted = true;
+    correctSound.muted = true;
+    clickSound.muted = true;
+    optionSound.muted = true;
 })
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function () {
@@ -201,7 +205,9 @@ function newQuestion() {
 /* this is being called twice on the newGame function ??*/
 function countdown() {
     if(seconds == 9){
-        quiz.innerHTML= `times up`;
+        resultText.innerHTML= `times up`;
+        questionResult.classList.add('active')
+        quiz.classList.remove('active')
     }
     else if (seconds < 10 && stopGame != true) {
         ++seconds;
