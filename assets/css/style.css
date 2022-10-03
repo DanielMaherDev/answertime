@@ -84,7 +84,12 @@ body {
 
 #game-types {
     display: none;
+}
 
+#game-types > div {
+    margin: 50px auto;
+    width: 70%;
+    
 }
 
 #game-types.active{
@@ -96,15 +101,6 @@ body {
     width: 100%;
     overflow: auto;
     flex-direction: row;
-}
-
-.game-type{
-    border-radius: 25px;
-    padding: 0 20px;
-    margin: 5px;
-    background-color: rgba(255, 255, 255, 0.9);
-    text-align: center;
-    font-size: 40px;
 }
 
 .active{
