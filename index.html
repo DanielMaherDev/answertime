@@ -12,7 +12,9 @@
 </head>
 
 <body>
-    <div id="sound"><i class="fa-solid fa-volume-high"></i></div>
+    <div id="sound"><i id="sound-on" class="fa-solid fa-volume-high active"></i>
+        <i id="sound-off" class="fa-solid fa-volume-xmark"></i>
+    </div>
     <div id="welcome-screen" class="active">
         <div id="title">DAN'S ANSWER-TIME QUIZ</div>
         <div id="start-button" class="divbtn">START</div>
@@ -53,10 +55,11 @@
 
     </div>
     <div id="question-result">
-        <div id="result-text">    You answered:<br> <strong><span id="answered"></span></strong> in <span id="seconds"></span> seconds! <br>
+        <div id="result-text"> You answered:<br> <strong><span id="answered"></span></strong> in <span
+                id="seconds"></span> seconds! <br>
             Correct!<br>
             +<span id="current-question-score"></span> points</div>
-    
+
         <div id="next-question" class="divbtn">NEXT</div>
     </div>
 

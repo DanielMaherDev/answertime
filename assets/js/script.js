@@ -27,7 +27,8 @@ const gameTypes = document.getElementById('game-types')
 let gameTypeNumber;
 const buttons = document.getElementsByClassName('divbtn');
 startButton.addEventListener('click', chooseGame);
-const soundOn = document.getElementById('sound');
+const soundOn = document.getElementsByClassName('fa-volume-high')[0];
+const soundOff = document.getElementsByClassName('fa-volume-xmark')[0];
 let selectedAnswer = "";
 let correctAnswer;
 let scoreAmount = parseInt(document.getElementById('score-amount').innerText)
@@ -41,6 +42,20 @@ soundOn.addEventListener('click', function () {
     correctSound.muted = true;
     clickSound.muted = true;
     optionSound.muted = true;
+    soundOff.classList.add('active');
+    soundOn.classList.remove('active');
+
+})
+
+soundOff.addEventListener('click', function () {
+    backgroundMusic.muted = false;
+    incorrectSound.muted = false;
+    correctSound.muted = false;
+    clickSound.muted = false;
+    optionSound.muted = false;
+    soundOff.classList.remove('active');
+    soundOn.classList.add('active');
+
 })
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function () {
