@@ -97,16 +97,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function answerSelected(answer) {
     stopGame = true;
+    let qstnScore;
+    if (seconds == 0){
+        qstnScore = 10;
+    }
+    else{    qstnScore = 11 - seconds;
+    }
     clearInterval(interval);
     if (qstnNumber + 1 < questions.length) {
         questionResult.classList.add("active");
         quiz.classList.remove("active");
         if (answer.getAttribute('id') == questions[qstnNumber].correct) {
             document.getElementById('answered').innerText = answer.innerText;
-            scoreAmount = scoreAmount + (10 - seconds)
+            scoreAmount += qstnScore;
             document.getElementById('score-amount').innerText = scoreAmount;
             document.getElementById('seconds').innerText = seconds;
-            document.getElementById('current-question-score').innerText = Math.floor(10 - seconds);
+            document.getElementById('current-question-score').innerText = qstnScore;
 
 
         } else {
