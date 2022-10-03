@@ -1,4 +1,5 @@
-let questions = [
+let games =[
+   [
     {
       question: "What city is the capital of Greece?",
       imgSrc: "img/html.png",
@@ -82,8 +83,8 @@ let questions = [
       choiceD: "Leicester City",
       correct: "C",
     },
-  ];
-  let musicQuestions = [
+  ],
+  [
     {
       question: "What bandisthebeatles?",
       imgSrc: "img/html.png",
@@ -191,8 +192,7 @@ let questions = [
       choiceD: "Wrong",
       correct: "A",
     },
-  ];
+  ]
+]
 
-  export {musicQuestions};
-
-  export {questions};
+  export {games};

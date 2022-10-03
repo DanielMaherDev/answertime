@@ -1,6 +1,5 @@
 import {
-    musicQuestions,
-    questions
+    games
 } from "./questions.js";
 
 /**
@@ -123,10 +122,10 @@ function answerSelected(answer) {
     else{    qstnScore = 11 - seconds;
     }
     clearInterval(interval);
-    if (qstnNumber + 1 < questions.length) {
+    if (qstnNumber + 1 < games[gameTypeNumber].length) {
         questionResult.classList.add("active");
         quiz.classList.remove("active");
-        if (answer.getAttribute('id') == questions[qstnNumber].correct) {
+        if (answer.getAttribute('id') == games[gameTypeNumber][qstnNumber].correct) {
             document.getElementById('answered').innerText = answer.innerText;
             scoreAmount += qstnScore;
             document.getElementById('score-amount').innerText = scoreAmount;
@@ -190,24 +189,17 @@ function newQuestion() {
      */
     function setQuestion() {
         if (qstnNumber < 10) {
-            if (gameTypeNumber == 0) {
-                document.getElementById('question').innerHTML = questions[qstnNumber].question;
-                correctAnswer = questions[qstnNumber].correct;
+           
+                document.getElementById('question').innerHTML =  games[gameTypeNumber][qstnNumber].question;
+                correctAnswer =  games[gameTypeNumber][qstnNumber].correct;
                 let answerOptions = [];
-                answerOptions = Object.values(questions[qstnNumber])
+                answerOptions = Object.values( games[gameTypeNumber][qstnNumber])
                 answerOptions = answerOptions.slice(2, 6);
                 for (let i = 0; i < answerDivs.length; i++) {
                     answerDivs[i].innerHTML = answerOptions[i];
                 }
-            } else {
-                document.getElementById('question').innerHTML = musicQuestions[qstnNumber].question;
-                let answerOptions = [];
-                answerOptions = Object.values(musicQuestions[qstnNumber])
-                answerOptions = answerOptions.slice(2, 6);
-                for (let i = 0; i < answerDivs.length; i++) {
-                    answerDivs[i].innerHTML = answerOptions[i];
-                }
-            }
+            
+            
         } else {
             return;
         }
