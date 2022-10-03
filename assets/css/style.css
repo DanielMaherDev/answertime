@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 * { 
-	box-sizing: border-box;
-}
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */}
 
 #sound{
     width: 3rem;
@@ -23,7 +24,7 @@
     animation-duration: 2s;
     color:black;
     background-color: #cbf078;
-    border: 5px solid black;
+    outline: 5px solid black;
 }
 
 @keyframes interactive-buttons {

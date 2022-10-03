@@ -139,6 +139,7 @@ function answerSelected(answer) {
         }
         seconds = 0;
     } else {
+        scoreAmount += qstnScore;
         quiz.innerHTML = `game over<br> You scored ${scoreAmount}/100
         <button id="new-game">New Game</button>`
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
