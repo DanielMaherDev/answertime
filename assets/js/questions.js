@@ -2,7 +2,6 @@ let games =[
    [
     {
       question: "What city is the capital of Greece?",
-      imgSrc: "img/html.png",
       choiceA: "Athens",
       choiceB: "Thesaloniki",
       choiceC: "Meteora",
@@ -11,7 +10,6 @@ let games =[
     },
     {
       question: "What is the capital of Finland?",
-      imgSrc: "img/html.png",
       choiceA: "Dublin",
       choiceB: "Helsinki",
       choiceC: "Oslo",
@@ -20,7 +18,6 @@ let games =[
     },
     {
       question: "Who was the 45th president of the United States?",
-      imgSrc: "img/html.png",
       choiceA: "Barack Obama",
       choiceB: "Donald Trump",
       choiceC: "Joe Biden",
@@ -28,7 +25,6 @@ let games =[
       correct: "B",
     },{
       question: "Whats the biggest animal in the world?",
-      imgSrc: "img/html.png",
       choiceA: "The Atlantic Blue Whale",
       choiceB: "The Great White Shark",
       choiceC: "Saltwater Crocodile	",
@@ -36,7 +32,6 @@ let games =[
       correct: "A",
     },{
       question: "How much is a bakers dozen?",
-      imgSrc: "img/html.png",
       choiceA: "12",
       choiceB: "24",
       choiceC: "11",
@@ -44,7 +39,6 @@ let games =[
       correct: "D",
     },{
       question: "Which country has the highest population?",
-      imgSrc: "img/html.png",
       choiceA: "India",
       choiceB: "Russia",
       choiceC: "China",
@@ -52,7 +46,6 @@ let games =[
       correct: "C",
     },{
       question: "Who is the god of love according to Greek mythology?",
-      imgSrc: "img/html.png",
       choiceA: "Eros",
       choiceB: "Hephaestus",
       choiceC: "Ares",
@@ -60,7 +53,6 @@ let games =[
       correct: "A",
     },{
       question: "How long is a rugby game?",
-      imgSrc: "img/html.png",
       choiceA: "95 minutes",
       choiceB: "70 minutes",
       choiceC: "55 minutes",
@@ -68,7 +60,6 @@ let games =[
       correct: "D",
     },{
       question: "Which year was the first iPhone released?",
-      imgSrc: "img/html.png",
       choiceA: "2004",
       choiceB: "2005",
       choiceC: "2006",
@@ -76,7 +67,6 @@ let games =[
       correct: "D",
     },{
       question: "Which premier league team won the title in the 2020/2021 season?",
-      imgSrc: "img/html.png",
       choiceA: "Arsenal",
       choiceB: "Liverpool",
       choiceC: "Manchester City",
@@ -87,7 +77,6 @@ let games =[
   [
     {
       question: "What band released the song 'Wonderwall?",
-      imgSrc: "img/html.png",
       choiceA: "Blur",
       choiceB: "Oasis",
       choiceC: "Guns'n'Roses",
@@ -96,7 +85,6 @@ let games =[
     },
     {
       question: "What year did the beatles break up?",
-      imgSrc: "img/html.png",
       choiceA: "1974",
       choiceB: "1982",
       choiceC: "1970",
@@ -105,7 +93,6 @@ let games =[
     },
     {
       question: "Which country does Nirvana originate from?",
-      imgSrc: "img/html.png",
       choiceA: "Ireland",
       choiceB: "Canada",
       choiceC: "USA",
@@ -113,7 +100,6 @@ let games =[
       correct: "C",
     },{
       question: "Which of the below did NOT headline Glastonbury in 2019?",
-      imgSrc: "img/html.png",
       choiceA: "Stormzy",
       choiceB: "The Cure",
       choiceC: "Dua Lipa",
@@ -121,7 +107,6 @@ let games =[
       correct: "C",
     },{
       question: "Which band wrote the song 'Wish you were here?",
-      imgSrc: "img/html.png",
       choiceA: "The rolling Stones",
       choiceB: "Eagles",
       choiceC: "The Kinks",
@@ -129,7 +114,6 @@ let games =[
       correct: "D",
     },{
       question: "What was Ed Sheeran born?",
-      imgSrc: "img/html.png",
       choiceA: "Barry Island",
       choiceB: "Manchester",
       choiceC: "North London",
@@ -137,7 +121,6 @@ let games =[
       correct: "D",
     },{
       question: "Who is the lead singer of Oasis (on the majority of album tracks)?",
-      imgSrc: "img/html.png",
       choiceA: "Noel Gallagher",
       choiceB: "Liam Gallagher",
       choiceC: "Bonehead",
@@ -145,7 +128,6 @@ let games =[
       correct: "B",
     },{
       question: "Who wrote Stairway To Heaven?",
-      imgSrc: "img/html.png",
       choiceA: "Jimi Hendrix",
       choiceB: "Sam and Dave",
       choiceC: "Led Zeppelin",

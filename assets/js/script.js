@@ -191,13 +191,13 @@ function newQuestion() {
      * The below function will set the question and answer values for the quiz
      */
     function setQuestion() {
-        if (qstnNumber < 10) {
+        if (qstnNumber < games[gameTypeNumber].length) {
            
                 document.getElementById('question').innerHTML =  games[gameTypeNumber][qstnNumber].question;
                 correctAnswer =  games[gameTypeNumber][qstnNumber].correct;
                 let answerOptions = [];
                 answerOptions = Object.values( games[gameTypeNumber][qstnNumber])
-                answerOptions = answerOptions.slice(2, 6);
+                answerOptions = answerOptions.slice(1, 5);
                 for (let i = 0; i < answerDivs.length; i++) {
                     answerDivs[i].innerHTML = answerOptions[i];
                 }
