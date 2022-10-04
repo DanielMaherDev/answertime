@@ -69,6 +69,7 @@ for (let i = 0; i < buttons.length; i++) {
             incorrectSound.play();
         } else if (buttons[i].classList == 'answer divbtn') {
             correctSound.play();
+            document.getElementById('answered').style.color = "green"
         } else {
             clickSound.play();
 
@@ -116,11 +117,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    howToPlay.addEventListener('click', function(){
+    howToPlay.addEventListener('click', function () {
         instructions.classList.add('active');
     })
 
-    howToClose.addEventListener('click', function(){
+    howToClose.addEventListener('click', function () {
         instructions.classList.remove('active');
     })
 
@@ -134,10 +135,10 @@ document.addEventListener("DOMContentLoaded", function () {
 function answerSelected(answer) {
     stopGame = true;
     let qstnScore;
-    if (seconds == 0){
+    if (seconds == 0) {
         qstnScore = 10;
-    }
-    else{    qstnScore = 11 - seconds;
+    } else {
+        qstnScore = 11 - seconds;
     }
     clearInterval(interval);
     if (qstnNumber + 1 < games[gameTypeNumber].length) {
@@ -152,7 +153,8 @@ function answerSelected(answer) {
 
 
         } else {
-            document.getElementById('result-text').innerHTML = 'Incorrect Answer'
+            document.getElementById('result-text').innerHTML = `You answered: <br> <span style="color: red; text-transform: uppercase">${answer.innerText}</span> <br> Incorrect! <br> 
+            </span>`
         }
         seconds = 0;
     } else {
@@ -197,8 +199,9 @@ function newQuestion() {
     seconds = 0;
     setQuestion();
     clearInterval(interval)
-    interval = setInterval(function(){
-        countdown()}, 1000); /* test code */
+    interval = setInterval(function () {
+        countdown()
+    }, 1000); /* test code */
     /* declared outside the countdown function as it repeats */
     /** This is the function which controls the timer, and timeout */
 
@@ -207,17 +210,17 @@ function newQuestion() {
      */
     function setQuestion() {
         if (qstnNumber < games[gameTypeNumber].length) {
-           
-                document.getElementById('question').innerHTML =  games[gameTypeNumber][qstnNumber].question;
-                correctAnswer =  games[gameTypeNumber][qstnNumber].correct;
-                let answerOptions = [];
-                answerOptions = Object.values( games[gameTypeNumber][qstnNumber])
-                answerOptions = answerOptions.slice(1, 5);
-                for (let i = 0; i < answerDivs.length; i++) {
-                    answerDivs[i].innerHTML = answerOptions[i];
-                }
-            
-            
+
+            document.getElementById('question').innerHTML = games[gameTypeNumber][qstnNumber].question;
+            correctAnswer = games[gameTypeNumber][qstnNumber].correct;
+            let answerOptions = [];
+            answerOptions = Object.values(games[gameTypeNumber][qstnNumber])
+            answerOptions = answerOptions.slice(1, 5);
+            for (let i = 0; i < answerDivs.length; i++) {
+                answerDivs[i].innerHTML = answerOptions[i];
+            }
+
+
         } else {
             return;
         }
@@ -230,16 +233,15 @@ function newQuestion() {
 }
 /* this is being called twice on the newGame function ??*/
 function countdown() {
-    if(seconds == 9){
-        resultText.innerHTML= `times up`;
+    if (seconds == 9) {
+        resultText.innerHTML = `TIMES UP!`;
         questionResult.classList.add('active')
         quiz.classList.remove('active')
-    }
-    else if (seconds < 10 && stopGame != true) {
+    } else if (seconds < 10 && stopGame != true) {
         ++seconds;
-    let countdownBarStage = document.getElementById(`seconds${seconds}`)
-    countdownBarStage.style.backgroundColor = "black";
-} else {
+        let countdownBarStage = document.getElementById(`seconds${seconds}`)
+        countdownBarStage.style.backgroundColor = "black";
+    } else {
         clearInterval(interval);
         running = false;
     }

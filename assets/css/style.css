@@ -15,8 +15,21 @@
 }
 
 #sound i{
-    font-size: 2rem;
+    font-size: 1.5rem;
     display: none;
+}
+
+button{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    width: 90%;
+}
+
+h1{ 
+    font-size: 2rem;
+}
+h2{
+    font-size: 1.5rem;
 }
 
 .divbtn:hover{
@@ -25,6 +38,19 @@
     color:black;
     background-color: #cbf078;
     outline: 5px solid black;
+}
+
+#answered{
+    text-transform: uppercase;
+}
+
+#question-number, #question{
+    display: block;
+    margin: 20px auto;
+}
+
+#question-number{
+    font-size: 1.5rem;
 }
 
 @keyframes interactive-buttons {
@@ -46,9 +72,7 @@ body {
 }
 
 #title, #choose-title{
-    text-align: center;
-    margin-top: 100px;
-    height: 50%;
+    margin: 100px auto;
     font-size: 2rem;
 }
 
@@ -68,13 +92,17 @@ display: none;
 
 #main-container{
     background: rgba(255, 255, 255, 0.7);
+    text-align: center;
 }
 
 #question-result{
-    font-size: 2.5rem;
+    font-size: 2rem;
     padding-top: 50px;
     line-height: 3.5rem;
+}
 
+#question-result span {
+    font-size: 2.5rem;
 }
 
 #game-types {
@@ -122,9 +150,12 @@ width: 10%;
 background-color: #cbf078;
 }
 
+#result-text{
+    margin: 25px auto;
+}
+
 #question{
     padding: 1.5rem 0;
-    text-align: center;
 }
 
 .divbtn{
@@ -132,7 +163,6 @@ background-color: #cbf078;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 1rem 2rem;
     min-width: 90%;
-    text-align: center;
     margin-bottom: 25px
 
 }
@@ -190,4 +220,9 @@ body > div{
     top: 0;
     background-color: rgba(255, 255, 255, 1);
     display: none;
+}
+
+.answer{
+    margin-bottom: 10px;
+    font-size: 1rem;
 }
