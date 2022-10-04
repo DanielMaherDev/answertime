@@ -26,11 +26,16 @@ button{
     width: 90%;
 }
 
-h1, h3{ 
+h1, h3, #score-amount{ 
     font-size: 2rem;
 }
-h2{
+h2, #max-score{
     font-size: 1.5rem;
+}
+
+#question{
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 .divbtn:hover{
