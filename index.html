@@ -12,19 +12,20 @@
 </head>
 
 <body>
+    <div id="main-container">
     <div id="sound"><i id="sound-on" class="fa-solid fa-volume-high active"></i>
         <i id="sound-off" class="fa-solid fa-volume-xmark"></i>
     </div>
     <div id="welcome-screen" class="active">
         <div id="title">DAN'S ANSWER-TIME QUIZ</div>
-        <div id="start-button" class="divbtn">START</div>
-        <div id="how-to-play" class="divbtn">HOW TO PLAY</div>
+        <button id="start-button" class="divbtn">START</button>
+        <button id="how-to-play" class="divbtn">HOW TO PLAY</button>
     </div>
     <div id="choose-game">
         <div id="game-types">
             <div id="choose-title">Choose Your Game Type</div>
-            <div id="general-knowledge" class="divbtn game-type">GENERAL KNOWLEDGE</div>
-            <div id="music" class="divbtn game-type">MUSIC</div>
+            <button id="general-knowledge" class="divbtn game-type">GENERAL KNOWLEDGE</button>
+            <button id="music" class="divbtn game-type">MUSIC</button>
         </div>
     </div>
     <div id="quiz-result"></div>
@@ -45,10 +46,10 @@
         </div>
         <div class="quiz">
             <div id="question"></div>
-            <div class="answer divbtn" data-type="answer" id="A"></div>
-            <div class="answer divbtn" data-type="answer" id="B"></div>
-            <div class="answer divbtn" data-type="answer" id="C"></div>
-            <div class="answer divbtn" data-type="answer" id="D"></div>
+            <button class="answer divbtn" data-type="answer" id="A"></button>
+            <button class="answer divbtn" data-type="answer" id="B"></button>
+            <button class="answer divbtn" data-type="answer" id="C"></button>
+            <button class="answer divbtn" data-type="answer" id="D"></button>
         </div>
 
         <div class="score">Your Score: <span id="score-amount">0</span>/<span id="max-score"></span></div>
@@ -60,7 +61,7 @@
             Correct!<br>
             +<span id="current-question-score"></span> points</div>
 
-        <div id="next-question" class="divbtn">NEXT</div>
+        <button id="next-question" class="divbtn">NEXT</button>
     </div>
     <div id="instructions">
         <span>How To Play</span><button id="how-to-close"><i class="fa-solid fa-xmark"></i></button>
@@ -68,6 +69,7 @@
             each second that passes, your score will diminish by 1. If answered correctly, your score wil be added to
             the overall amount.</p>
     </div>
+</div>
     <script type="module" src="assets/js/script.js"></script>
     <script type="module" src="assets/js/questions.js"></script>
     <script src="https://kit.fontawesome.com/909b707dfc.js" crossorigin="anonymous"></script>
