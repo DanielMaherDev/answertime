@@ -169,8 +169,8 @@ function answerSelected(answer) {
         seconds = 0;
     } else {
         scoreAmount += qstnScore;
-        quiz.innerHTML = `GAME OVER!<br> You scored ${scoreAmount}/${maxScoreAmount}
-        <button id="new-game">New Game</button>`
+        quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
+        <button class="divbtn" id="new-game">New Game</button>`
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
         document.getElementById('new-game').addEventListener('click', function () {
             location.reload();
@@ -250,8 +250,8 @@ function countdown() {
         quiz.classList.remove('active')
     }
    else if (seconds == 9 && qstnNumber + 1 == games[gameTypeNumber].length) {
-    quiz.innerHTML = `GAME OVER!<br> You scored ${scoreAmount}/${maxScoreAmount}
-    <button id="new-game">New Game</button>`
+    quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
+    <button class="divbtn" id="new-game">New Game</button></div>`
     document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
     document.getElementById('new-game').addEventListener('click', function () {
         location.reload();
