@@ -149,6 +149,16 @@ function answerSelected(answer) {
             scoreAmount += qstnScore;
             document.getElementById('score-amount').innerText = scoreAmount;
             document.getElementById('seconds').innerText = seconds;
+            if(seconds < 3){
+                document.getElementById('seconds').style.color = "green";
+            }
+            else if (seconds >= 3 && seconds < 7){
+                document.getElementById('seconds').style.color = "orange";
+            }
+            else {
+                document.getElementById('seconds').style.color = "red";
+
+            }
             document.getElementById('current-question-score').innerText = qstnScore;
 
 
@@ -159,7 +169,7 @@ function answerSelected(answer) {
         seconds = 0;
     } else {
         scoreAmount += qstnScore;
-        quiz.innerHTML = `game over<br> You scored ${scoreAmount}/${maxScoreAmount}
+        quiz.innerHTML = `GAME OVER!<br> You scored ${scoreAmount}/${maxScoreAmount}
         <button id="new-game">New Game</button>`
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
         document.getElementById('new-game').addEventListener('click', function () {
@@ -189,9 +199,10 @@ let stopGame;
 
 function newQuestion() {
 
-    resultText.innerHTML = `  You answered:<br> <strong><span id="answered"></span></strong> in <span id="seconds"></span> seconds! <br>
-    Correct!<br>
-    +<span id="current-question-score"></span> points`
+    resultText.innerHTML = `You answered:<br> <strong><span id="answered"></span></strong><br /> in <span
+    id="seconds"></span> seconds! <br>
+CORRECT!<br> 
++<span id="current-question-score"></span> points`
     quiz.classList.add('active');
     questionResult.classList.remove("active");
     stopGame = false;
@@ -233,11 +244,20 @@ function newQuestion() {
 }
 /* this is being called twice on the newGame function ??*/
 function countdown() {
-    if (seconds == 9) {
+    if (seconds == 9 && qstnNumber + 1 < games[gameTypeNumber].length) {
         resultText.innerHTML = `TIMES UP!`;
         questionResult.classList.add('active')
         quiz.classList.remove('active')
-    } else if (seconds < 10 && stopGame != true) {
+    }
+   else if (seconds == 9 && qstnNumber + 1 == games[gameTypeNumber].length) {
+    quiz.innerHTML = `GAME OVER!<br> You scored ${scoreAmount}/${maxScoreAmount}
+    <button id="new-game">New Game</button>`
+    document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
+    document.getElementById('new-game').addEventListener('click', function () {
+        location.reload();
+    })
+    }
+     else if (seconds < 10 && stopGame != true) {
         ++seconds;
         let countdownBarStage = document.getElementById(`seconds${seconds}`)
         countdownBarStage.style.backgroundColor = "black";
