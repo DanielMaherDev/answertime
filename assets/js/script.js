@@ -18,18 +18,18 @@ const nextQuestion = document.getElementById('next-question');
 let qstnNumber = 0;
 let currentQuestion = document.getElementById('question-number');
 let seconds = 0;
-const countdownBar = document.getElementsByClassName('progress')
+const countdownBar = document.getElementsByClassName('progress');
 const startButton = document.getElementById('start-button');
 const gameType = document.getElementsByClassName('game-type');
-const gameTypes = document.getElementById('game-types')
+const gameTypes = document.getElementById('game-types');
 let gameTypeNumber;
-const buttons = document.getElementsByClassName('divbtn');
+const buttons = document.querySelectorAll('.divbtn');
 startButton.addEventListener('click', chooseGame);
 const soundOn = document.getElementsByClassName('fa-volume-high')[0];
 const soundOff = document.getElementsByClassName('fa-volume-xmark')[0];
 let selectedAnswer = "";
 let correctAnswer;
-let scoreAmount = parseInt(document.getElementById('score-amount').innerText)
+let scoreAmount = parseInt(document.getElementById('score-amount').innerText);
 var cD = 100,
     interval, running = false;
 let gameNumber = 0;
@@ -49,7 +49,7 @@ soundOn.addEventListener('click', function () {
     soundOff.classList.add('active');
     soundOn.classList.remove('active');
 
-})
+});
 
 soundOff.addEventListener('click', function () {
     backgroundMusic.muted = false;
@@ -59,26 +59,29 @@ soundOff.addEventListener('click', function () {
     soundOff.classList.remove('active');
     soundOn.classList.add('active');
 
-})
-for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', function () {
-        if (buttons[i].classList == 'answer divbtn' && buttons[i].id != correctAnswer) {
+});
+
+buttons.forEach(button => {
+
+    button.addEventListener('click', event => {
+        if (button.classList == 'answer divbtn' && button.id != correctAnswer) {
             incorrectSound.play();
-        } else if (buttons[i].classList == 'answer divbtn') {
+        } else if (button.classList == 'answer divbtn') {
             correctSound.play();
-            document.getElementById('answered').style.color = "green"
+            document.getElementById('answered').style.color = "green";
         } else {
             clickSound.play();
-
         }
     });
-}
+ 
+ });
+
 
 function chooseGame() {
-    welcomeScreen.classList.add('exit-animation')
+    welcomeScreen.classList.add('exit-animation');
     setTimeout(function () {
-        gameTypes.classList.add('active', 'enter-animation')
-        welcomeScreen.classList.remove('active')
+        gameTypes.classList.add('active', 'enter-animation');
+        welcomeScreen.classList.remove('active');
     }, 1000);
 
 
@@ -87,7 +90,7 @@ function chooseGame() {
             gameTypeNumber = g;
             maxScoreAmount = games[g].length * 10;
             maxScoreText.innerText = maxScoreAmount;
-            startGame()
+            startGame();
         });
     }
 }
@@ -192,7 +195,7 @@ let stopGame;
 
 function newQuestion() {
 
-    resultText.innerHTML = `You answered:<br> <strong><span id="answered"></span></strong><br /> in <span
+    resultText.innerHTML = `You answered:<br> <strong><span id="answered"></span></strong><br> in <span
     id="seconds"></span> seconds! <br>
 CORRECT!<br> 
 +<span id="current-question-score"></span> points`
