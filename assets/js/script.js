@@ -30,9 +30,8 @@ const soundOff = document.getElementsByClassName('fa-volume-xmark')[0];
 let selectedAnswer = "";
 let correctAnswer;
 let scoreAmount = parseInt(document.getElementById('score-amount').innerText);
-var cD = 100,
-    interval, running = false;
-let gameNumber = 0;
+let interval;
+let running = false;
 const maxScoreText = document.getElementById('max-score');
 let maxScoreAmount;
 const howToPlay = document.getElementById('how-to-play');
@@ -63,7 +62,7 @@ soundOff.addEventListener('click', function () {
 
 buttons.forEach(button => {
 
-    button.addEventListener('click', event => {
+    button.addEventListener('click', function() {
         if (button.classList == 'answer divbtn' && button.id != correctAnswer) {
             incorrectSound.play();
         } else if (button.classList == 'answer divbtn') {
@@ -73,8 +72,8 @@ buttons.forEach(button => {
             clickSound.play();
         }
     });
- 
- });
+
+});
 
 
 function chooseGame() {
@@ -84,22 +83,20 @@ function chooseGame() {
         welcomeScreen.classList.remove('active');
     }, 1000);
 
-   gameType.forEach (type => {
+    gameType.forEach(type => {
         type.addEventListener('click', function () {
-            if (type== gameType[0]){
+            if (type == gameType[0]) {
                 maxScoreAmount = 100;
                 maxScoreText.innerText = maxScoreAmount;
                 gameTypeNumber = 0;
                 startGame();
-            }
-
-            else{
+            } else {
                 maxScoreAmount = 80;
                 maxScoreText.innerText = maxScoreAmount;
                 gameTypeNumber = 1;
                 startGame();
             }
-          
+
         });
     });
 }
@@ -107,32 +104,32 @@ function chooseGame() {
 
 document.addEventListener("DOMContentLoaded", function () {
     answerDivs.forEach(answer => {
-            answer.addEventListener("click", function () {
-                nextQuestion.classList.add('enter-animation');
-                selectedAnswer = answer;
-                stopGame = true;
-                answerSelected(selectedAnswer);
+        answer.addEventListener("click", function () {
+            nextQuestion.classList.add('enter-animation');
+            selectedAnswer = answer;
+            stopGame = true;
+            answerSelected(selectedAnswer);
 
-            })
-    
+        });
+
 
     });
 
     howToPlay.addEventListener('click', function () {
         instructions.classList.add('active');
-        welcomeScreen.classList.remove('active')
-    })
+        welcomeScreen.classList.remove('active');
+    });
 
     howToClose.addEventListener('click', function () {
         instructions.classList.remove('active');
-        welcomeScreen.classList.add('active')
+        welcomeScreen.classList.add('active');
 
-    })
+    });
 
     nextQuestion.addEventListener("click", function () {
         qstnNumber += 1;
-        newQuestion()
-    })
+        newQuestion();
+    });
 });
 
 
@@ -153,13 +150,11 @@ function answerSelected(answer) {
             scoreAmount += qstnScore;
             document.getElementById('score-amount').innerText = scoreAmount;
             document.getElementById('seconds').innerText = seconds;
-            if(seconds < 3){
+            if (seconds < 3) {
                 document.getElementById('seconds').style.color = "green";
-            }
-            else if (seconds >= 3 && seconds < 7){
+            } else if (seconds >= 3 && seconds < 7) {
                 document.getElementById('seconds').style.color = "orange";
-            }
-            else {
+            } else {
                 document.getElementById('seconds').style.color = "red";
 
             }
@@ -168,17 +163,17 @@ function answerSelected(answer) {
 
         } else {
             document.getElementById('result-text').innerHTML = `You answered: <br> <span style="color: red; text-transform: uppercase">${answer.innerText}</span> <br> Incorrect! <br> 
-            </span>`
+            </span>`;
         }
         seconds = 0;
     } else {
         scoreAmount += qstnScore;
         quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
-        <button class="divbtn" id="new-game">New Game</button>`
+        <button class="divbtn" id="new-game">New Game</button>`;
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
         document.getElementById('new-game').addEventListener('click', function () {
             location.reload();
-        })
+        });
 
     }
 
@@ -193,7 +188,7 @@ function startGame() {
         gameTypes.classList.remove('active');
         newQuestion();
 
-    }, 1000)
+    }, 1000);
 
     /*play audio music in background*/
 
@@ -206,16 +201,16 @@ function newQuestion() {
     resultText.innerHTML = `You answered:<br> <strong><span id="answered"></span></strong><br> in <span
     id="seconds"></span> seconds! <br>
 CORRECT!<br> 
-+<span id="current-question-score"></span> points`
++<span id="current-question-score"></span> points`;
     quiz.classList.add('active');
     questionResult.classList.remove("active");
     stopGame = false;
     currentQuestion.innerText = qstnNumber + 1;
     seconds = 0;
     setQuestion();
-    clearInterval(interval)
+    clearInterval(interval);
     interval = setInterval(function () {
-        countdown()
+        countdown();
     }, 1000); /* test code */
     /* declared outside the countdown function as it repeats */
     /** This is the function which controls the timer, and timeout */
@@ -229,7 +224,7 @@ CORRECT!<br>
             document.getElementById('question').innerHTML = games[gameTypeNumber][qstnNumber].question;
             correctAnswer = games[gameTypeNumber][qstnNumber].correct;
             let answerOptions = [];
-            answerOptions = Object.values(games[gameTypeNumber][qstnNumber])
+            answerOptions = Object.values(games[gameTypeNumber][qstnNumber]);
             answerOptions = answerOptions.slice(1, 5);
             for (let i = 0; i < answerDivs.length; i++) {
                 answerDivs[i].innerHTML = answerOptions[i];
@@ -250,24 +245,21 @@ CORRECT!<br>
 function countdown() {
     if (seconds == 9 && qstnNumber + 1 < games[gameTypeNumber].length) {
         resultText.innerHTML = `TIMES UP!`;
-        questionResult.classList.add('active')
-        quiz.classList.remove('active')
-    }
-   else if (seconds == 9 && qstnNumber + 1 == games[gameTypeNumber].length) {
-    quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
-    <button class="divbtn" id="new-game">New Game</button></div>`
-    document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
-    document.getElementById('new-game').addEventListener('click', function () {
-        location.reload();
-    })
-    }
-     else if (seconds < 10 && stopGame != true) {
+        questionResult.classList.add('active');
+        quiz.classList.remove('active');
+    } else if (seconds == 9 && qstnNumber + 1 == games[gameTypeNumber].length) {
+        quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
+    <button class="divbtn" id="new-game">New Game</button></div>`;
+        document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
+        document.getElementById('new-game').addEventListener('click', function () {
+            location.reload();
+        });
+    } else if (seconds < 10 && stopGame != true) {
         ++seconds;
-        let countdownBarStage = document.getElementById(`seconds${seconds}`)
+        let countdownBarStage = document.getElementById(`seconds${seconds}`);
         countdownBarStage.style.backgroundColor = "black";
     } else {
         clearInterval(interval);
         running = false;
     }
-
 }
