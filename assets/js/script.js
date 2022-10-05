@@ -7,7 +7,6 @@ import {
  */
 const backgroundMusic = new Audio('./answertime/../assets/audio/background-audio.mp3');
 const clickSound = new Audio('./answertime/../assets/audio/click.wav');
-const optionSound = new Audio('./answertime/../assets/audio/option.mp3');
 const correctSound = new Audio('./answertime/../assets/audio/correct.mp3');
 const incorrectSound = new Audio('./answertime/../assets/audio/incorrect.mp3');
 const answerDivs = document.getElementsByClassName('answer');
@@ -47,7 +46,6 @@ soundOn.addEventListener('click', function () {
     incorrectSound.muted = true;
     correctSound.muted = true;
     clickSound.muted = true;
-    optionSound.muted = true;
     soundOff.classList.add('active');
     soundOn.classList.remove('active');
 
@@ -58,7 +56,6 @@ soundOff.addEventListener('click', function () {
     incorrectSound.muted = false;
     correctSound.muted = false;
     clickSound.muted = false;
-    optionSound.muted = false;
     soundOff.classList.remove('active');
     soundOn.classList.add('active');
 
@@ -74,13 +71,6 @@ for (let i = 0; i < buttons.length; i++) {
             clickSound.play();
 
         }
-    });
-}
-
-
-for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('mouseover', function () {
-        optionSound.play();
     });
 }
 
@@ -119,10 +109,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     howToPlay.addEventListener('click', function () {
         instructions.classList.add('active');
+        welcomeScreen.classList.remove('active')
     })
 
     howToClose.addEventListener('click', function () {
         instructions.classList.remove('active');
+        welcomeScreen.classList.add('active')
+
     })
 
     nextQuestion.addEventListener("click", function () {
