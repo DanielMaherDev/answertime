@@ -76,6 +76,12 @@ buttons.forEach(button => {
 });
 
 
+function timeOut(){
+    incorrectSound.play();
+}
+
+
+
 function chooseGame() {
     welcomeScreen.classList.add('exit-animation');
     setTimeout(function () {
@@ -197,7 +203,6 @@ function startGame() {
 let stopGame;
 
 function newQuestion() {
-
     resultText.innerHTML = `You answered:<br> <strong><span id="answered"></span></strong><br> in <span
     id="seconds"></span> seconds! <br>
 CORRECT!<br> 
@@ -247,6 +252,8 @@ function countdown() {
         resultText.innerHTML = `TIMES UP!`;
         questionResult.classList.add('active');
         quiz.classList.remove('active');
+        timeOut();
+         seconds = 0;
     } else if (seconds == 9 && qstnNumber + 1 == games[gameTypeNumber].length) {
         quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
     <button class="divbtn" id="new-game">New Game</button></div>`;

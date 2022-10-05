@@ -13,6 +13,7 @@
     top: 20px;
     color: rgba(0, 0, 0, 0.7);
     z-index: 2;
+    cursor: pointer;
 }
 
 #sound i{
@@ -24,6 +25,7 @@ button{
     font-size: 1.5rem;
     font-weight: bolder;
     width: 90%;
+    cursor: pointer;
 }
 
 h1, h3, #score-amount{ 
@@ -221,6 +223,10 @@ background-color: #cbf078;
    max-width: 50%;
     margin: 0 auto;
 }    
+
+#sound{
+    right: 27%;
+}
 }
 
 #instructions{
