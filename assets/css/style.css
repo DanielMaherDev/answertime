@@ -216,18 +216,6 @@ background-color: #cbf078;
     }
 }
 
-@media screen and (min-width:768px) {
-    #main-container{
-        background: rgba(255, 255, 255, 0.7);
-        text-align: center;
-   max-width: 50%;
-    margin: 0 auto;
-}    
-
-#sound{
-    right: 27%;
-}
-}
 
 #instructions{
     padding-top: 5%;
@@ -247,4 +235,21 @@ background-color: #cbf078;
 .answer{
     margin-bottom: 10px;
     font-size: 1rem;
+}
+
+@media screen and (min-width:768px) {
+    #main-container{
+        background: rgba(255, 255, 255, 0.7);
+        text-align: center;
+   max-width: 50%;
+    margin: 0 auto;
+}    
+
+button{
+    font-size: 1.2rem !important;
+}
+
+#sound{
+    right: 27%;
+}
 }

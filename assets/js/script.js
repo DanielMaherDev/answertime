@@ -253,7 +253,7 @@ function countdown() {
         questionResult.classList.add('active');
         quiz.classList.remove('active');
         timeOut();
-         seconds = 0;
+        clearInterval(interval);
     } else if (seconds == 9 && qstnNumber + 1 == games[gameTypeNumber].length) {
         quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
     <button class="divbtn" id="new-game">New Game</button></div>`;
