@@ -9,7 +9,7 @@ const backgroundMusic = new Audio('./answertime/../assets/audio/background-audio
 const clickSound = new Audio('./answertime/../assets/audio/click.wav');
 const correctSound = new Audio('./answertime/../assets/audio/correct.mp3');
 const incorrectSound = new Audio('./answertime/../assets/audio/incorrect.mp3');
-const answerDivs = document.getElementsByClassName('answer');
+const answerDivs = document.querySelectorAll('.answer');
 const quiz = document.getElementsByClassName("quiz-container")[0];
 const welcomeScreen = document.getElementById("welcome-screen");
 const questionResult = document.getElementById("question-result");
@@ -20,7 +20,7 @@ let currentQuestion = document.getElementById('question-number');
 let seconds = 0;
 const countdownBar = document.getElementsByClassName('progress');
 const startButton = document.getElementById('start-button');
-const gameType = document.getElementsByClassName('game-type');
+const gameType = document.querySelectorAll('.game-type');
 const gameTypes = document.getElementById('game-types');
 let gameTypeNumber;
 const buttons = document.querySelectorAll('.divbtn');
@@ -84,31 +84,39 @@ function chooseGame() {
         welcomeScreen.classList.remove('active');
     }, 1000);
 
+   gameType.forEach (type => {
+        type.addEventListener('click', function () {
+            if (type== gameType[0]){
+                maxScoreAmount = 100;
+                maxScoreText.innerText = maxScoreAmount;
+                gameTypeNumber = 0;
+                startGame();
+            }
 
-    for (let g = 0; g < gameType.length; g++) {
-        gameType[g].addEventListener('click', function () {
-            gameTypeNumber = g;
-            maxScoreAmount = games[g].length * 10;
-            maxScoreText.innerText = maxScoreAmount;
-            startGame();
+            else{
+                maxScoreAmount = 80;
+                maxScoreText.innerText = maxScoreAmount;
+                gameTypeNumber = 1;
+                startGame();
+            }
+          
         });
-    }
+    });
 }
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    for (var i = 0; i < answerDivs.length; i++) {
-        (function (index) {
-            answerDivs[index].addEventListener("click", function () {
-                nextQuestion.classList.add('enter-animation')
-                selectedAnswer = answerDivs[index];
+    answerDivs.forEach(answer => {
+            answer.addEventListener("click", function () {
+                nextQuestion.classList.add('enter-animation');
+                selectedAnswer = answer;
                 stopGame = true;
                 answerSelected(selectedAnswer);
 
             })
-        })(i);
+    
 
-    }
+    });
 
     howToPlay.addEventListener('click', function () {
         instructions.classList.add('active');
