@@ -2,9 +2,6 @@ import {
     games
 } from "./questions.js";
 
-/**
- * This function runs when the user has selected to start the game. 
- */
 const backgroundMusic = new Audio('./answertime/../assets/audio/background-audio.mp3');
 const clickSound = new Audio('./answertime/../assets/audio/click.wav');
 const correctSound = new Audio('./answertime/../assets/audio/correct.mp3');
@@ -14,32 +11,18 @@ const quiz = document.getElementsByClassName("quiz-container")[0];
 const welcomeScreen = document.getElementById("welcome-screen");
 const questionResult = document.getElementById("question-result");
 const resultText = document.getElementById("result-text");
-let qstnNumber = 0;
-let currentQuestion = document.getElementById('question-number');
-let seconds = 0;
-const countdownBar = document.getElementsByClassName('progress');
-const startButton = document.getElementById('start-button');
-const gameType = document.querySelectorAll('.game-type');
 const gameTypes = document.getElementById('game-types');
+let qstnNumber = 0;
+let seconds = 0;
 let gameTypeNumber;
-const buttons = document.querySelectorAll('.game-button');
-startButton.addEventListener('click', chooseGame);
 const soundOn = document.getElementsByClassName('fa-volume-high')[0];
 const soundOff = document.getElementsByClassName('fa-volume-xmark')[0];
-let selectedAnswer = "";
 let correctAnswer;
 let scoreAmount = parseInt(document.getElementById('score-amount').innerText);
 let interval;
-let running = false;
-const maxScoreText = document.getElementById('max-score');
 let maxScoreAmount;
-const howToPlay = document.getElementById('how-to-play');
-const howToClose = document.getElementById('how-to-close');
-const instructions = document.getElementById('instructions');
 
-
-
-soundOn.addEventListener('click', function() {
+soundOn.addEventListener('click', function () {
     backgroundMusic.muted = true;
     incorrectSound.muted = true;
     correctSound.muted = true;
@@ -49,28 +32,13 @@ soundOn.addEventListener('click', function() {
 
 });
 
-soundOff.addEventListener('click', function() {
+soundOff.addEventListener('click', function () {
     backgroundMusic.muted = false;
     incorrectSound.muted = false;
     correctSound.muted = false;
     clickSound.muted = false;
     soundOff.classList.remove('active');
     soundOn.classList.add('active');
-
-});
-
-buttons.forEach(button => {
-
-    button.addEventListener('click', function() {
-        if (button.classList == 'answer game-button' && button.id != correctAnswer) {
-            incorrectSound.play();
-        } else if (button.classList == 'answer game-button') {
-            correctSound.play();
-            document.getElementById('answered').style.color = "green";
-        } else {
-            clickSound.play();
-        }
-    });
 
 });
 
@@ -82,14 +50,16 @@ function timeOut() {
 
 
 function chooseGame() {
+    const maxScoreText = document.getElementById('max-score');
+    const gameType = document.querySelectorAll('.game-type');
     welcomeScreen.classList.add('exit-animation');
-    setTimeout(function() {
+    setTimeout(function () {
         gameTypes.classList.add('active', 'enter-animation');
         welcomeScreen.classList.remove('active');
     }, 1000);
 
     gameType.forEach(type => {
-        type.addEventListener('click', function() {
+        type.addEventListener('click', function () {
             if (type == gameType[0]) {
                 maxScoreAmount = 100;
                 maxScoreText.innerText = maxScoreAmount;
@@ -107,32 +77,51 @@ function chooseGame() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    const nextQuestion = document.getElementById('next-question');
-    answerDivs.forEach(answer => {
-        answer.addEventListener("click", function() {
-            nextQuestion.classList.add('enter-animation');
-            selectedAnswer = answer;
-            stopGame = true;
-            answerSelected(selectedAnswer);
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll('.game-button');
+    buttons.forEach(button => {
 
+        button.addEventListener('click', function () {
+            if (button.classList == 'answer game-button' && button.id != correctAnswer) {
+                incorrectSound.play();
+            } else if (button.classList == 'answer game-button') {
+                correctSound.play();
+                document.getElementById('answered').style.color = "green";
+            } else {
+                clickSound.play();
+            }
         });
 
+    });
+    
+    const startButton = document.getElementById('start-button');
+    const howToPlay = document.getElementById('how-to-play');
+    const howToClose = document.getElementById('how-to-close');
+    const nextQuestion = document.getElementById('next-question');
+    const instructions = document.getElementById('instructions');
 
+    startButton.addEventListener('click', chooseGame);
+    answerDivs.forEach(answer => {
+        answer.addEventListener("click", function () {
+            nextQuestion.classList.add('enter-animation');
+            let selectedAnswer = answer;
+            stopGame = true;
+            answerSelected(selectedAnswer);
+        });
     });
 
-    howToPlay.addEventListener('click', function() {
+    howToPlay.addEventListener('click', function () {
         instructions.classList.add('active');
         welcomeScreen.classList.remove('active');
     });
 
-    howToClose.addEventListener('click', function() {
+    howToClose.addEventListener('click', function () {
         instructions.classList.remove('active');
         welcomeScreen.classList.add('active');
 
     });
 
-    nextQuestion.addEventListener("click", function() {
+    nextQuestion.addEventListener("click", function () {
         qstnNumber += 1;
         newQuestion();
     });
@@ -177,7 +166,7 @@ function answerSelected(answer) {
         quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
         <button class="game-button" id="new-game">New Game</button>`;
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
-        document.getElementById('new-game').addEventListener('click', function() {
+        document.getElementById('new-game').addEventListener('click', function () {
             location.reload();
         });
 
@@ -189,7 +178,7 @@ function startGame() {
     backgroundMusic.play();
     gameTypes.classList.remove('enter-animation');
     gameTypes.classList.add('exit-animation');
-    setTimeout(function() {
+    setTimeout(function () {
         quiz.classList.add('enter-animation', 'active');
         gameTypes.classList.remove('active');
         newQuestion();
@@ -203,6 +192,7 @@ function startGame() {
 let stopGame;
 
 function newQuestion() {
+    let currentQuestion = document.getElementById('question-number');
     resultText.innerHTML = `You answered:<br> <strong><span id="answered"></span></strong><br> in <span
     id="seconds"></span> seconds! <br>
 CORRECT!<br> 
@@ -214,7 +204,7 @@ CORRECT!<br>
     seconds = 0;
     setQuestion();
     clearInterval(interval);
-    interval = setInterval(function() {
+    interval = setInterval(function () {
         countdown();
     }, 1000); /* test code */
     /* declared outside the countdown function as it repeats */
@@ -224,6 +214,8 @@ CORRECT!<br>
      * The below function will set the question and answer values for the quiz
      */
     function setQuestion() {
+        const countdownBar = document.getElementsByClassName('progress');
+
         if (qstnNumber < games[gameTypeNumber].length) {
 
             document.getElementById('question').innerHTML = games[gameTypeNumber][qstnNumber].question;
@@ -258,7 +250,7 @@ function countdown() {
         quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
     <button class="game-button" id="new-game">New Game</button></div>`;
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
-        document.getElementById('new-game').addEventListener('click', function() {
+        document.getElementById('new-game').addEventListener('click', function () {
             location.reload();
         });
     } else if (seconds < 10 && stopGame != true) {
