@@ -12,10 +12,13 @@
 </head>
 
 <body>
+    <!--Container for all quiz sections-->
     <div id="main-container">
+        <!--Icon for audio switch-->
         <div id="sound"><i id="sound-on" class="fa-solid fa-volume-high active"></i>
             <i id="sound-off" class="fa-solid fa-volume-xmark"></i>
         </div>
+        <!--Initial section on page load-->
         <div id="welcome-screen" class="active">
             <div id="title">
                 <h1>ANSWER-TIME</h1>
@@ -24,6 +27,7 @@
             <button id="start-button" class="divbtn">START</button>
             <button id="how-to-play" class="divbtn">HOW TO PLAY</button>
         </div>
+        <!-- section to choose game type-->
         <div id="choose-game">
             <div id="game-types">
                 <div id="choose-title">Choose Your Game Type</div>
@@ -32,8 +36,10 @@
             </div>
         </div>
         <div id="quiz-result"></div>
+        <!--Quiz container-->
         <div class="quiz-container">
             <div>QUESTION <span id="question-number">1</span></div>
+            <!--Countdown Bar-->
             <div id="progress-bar">
                 <div class="progress" id="seconds10"></div>
                 <div class="progress" id="seconds9"></div>
@@ -45,8 +51,8 @@
                 <div class="progress" id="seconds3"></div>
                 <div class="progress" id="seconds2"></div>
                 <div class="progress" id="seconds1"></div>
-
             </div>
+            <!--Question and possible answers section-->
             <div class="quiz">
                 <div id="question"></div>
                 <button class="answer divbtn" data-type="answer" id="A"></button>
@@ -58,6 +64,7 @@
             <div class="score">Your Score: <span id="score-amount">0</span>/<span id="max-score"></span></div>
 
         </div>
+        <!--Section to display result of selected answer-->
         <div id="question-result">
             <div id="result-text"> You answered:<br> <strong><span id="answered"></span></strong><br> in <span
                     id="seconds"></span> seconds! <br>
@@ -66,6 +73,7 @@
 
             <button id="next-question" class="divbtn">NEXT QUESTION</button>
         </div>
+        <!-- Instructions on how to play-->
         <div id="instructions">
             <h3>HOW TO PLAY</h3>
             <ul>
@@ -79,10 +87,11 @@
             <button class="divbtn" id="how-to-close">Main Menu</button>
         </div>
     </div>
+    <!-- Adds functionality to site-->
     <script type="module" src="assets/js/script.js"></script>
-    <script type="module" src="assets/js/questions.js"></script>
-    <script src="https://kit.fontawesome.com/909b707dfc.js" crossorigin="anonymous"></script>
+    <!--Questions for quiz-->
 
+    <script type="module" src="assets/js/questions.js"></script>
 
 </body>
 
