@@ -25,15 +25,15 @@
                 <h1>ANSWER-TIME</h1>
                 <h2>A TIME BASED QUIZ</h2>
             </div>
-            <button id="start-button" class="divbtn">START</button>
-            <button id="how-to-play" class="divbtn">HOW TO PLAY</button>
+            <button id="start-button" class="game-button">START</button>
+            <button id="how-to-play" class="game-button">HOW TO PLAY</button>
         </div>
         <!-- section to choose game type-->
         <div id="choose-game">
             <div id="game-types">
                 <div id="choose-title">Choose Your Game Type</div>
-                <button id="general-knowledge" class="divbtn game-type">GENERAL KNOWLEDGE</button>
-                <button id="music" class="divbtn game-type">MUSIC</button>
+                <button id="general-knowledge" class="game-button game-type">GENERAL KNOWLEDGE</button>
+                <button id="music" class="game-button game-type">MUSIC</button>
             </div>
         </div>
         <div id="quiz-result"></div>
@@ -56,10 +56,10 @@
             <!--Question and possible answers section-->
             <div class="quiz">
                 <div id="question"></div>
-                <button class="answer divbtn" data-type="answer" id="A"></button>
-                <button class="answer divbtn" data-type="answer" id="B"></button>
-                <button class="answer divbtn" data-type="answer" id="C"></button>
-                <button class="answer divbtn" data-type="answer" id="D"></button>
+                <button class="answer game-button" data-type="answer" id="A"></button>
+                <button class="answer game-button" data-type="answer" id="B"></button>
+                <button class="answer game-button" data-type="answer" id="C"></button>
+                <button class="answer game-button" data-type="answer" id="D"></button>
             </div>
 
             <div class="score">Your Score: <span id="score-amount">0</span>/<span id="max-score"></span></div>
@@ -72,7 +72,7 @@
                 CORRECT!<br>
                 +<span id="current-question-score"></span> points</div>
 
-            <button id="next-question" class="divbtn">NEXT QUESTION</button>
+            <button id="next-question" class="game-button">NEXT QUESTION</button>
         </div>
         <!-- Instructions on how to play-->
         <div id="instructions">
@@ -85,7 +85,7 @@
                 <li> If answered correctly, your score wil be added to
                     the overall amount.</li>
             </ul>
-            <button class="divbtn" id="how-to-close">Main Menu</button>
+            <button class="game-button" id="how-to-close">Main Menu</button>
         </div>
     </div>
     <!-- Adds functionality to site-->

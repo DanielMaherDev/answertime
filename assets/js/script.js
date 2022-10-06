@@ -23,7 +23,7 @@ const startButton = document.getElementById('start-button');
 const gameType = document.querySelectorAll('.game-type');
 const gameTypes = document.getElementById('game-types');
 let gameTypeNumber;
-const buttons = document.querySelectorAll('.divbtn');
+const buttons = document.querySelectorAll('.game-button');
 startButton.addEventListener('click', chooseGame);
 const soundOn = document.getElementsByClassName('fa-volume-high')[0];
 const soundOff = document.getElementsByClassName('fa-volume-xmark')[0];
@@ -63,9 +63,9 @@ soundOff.addEventListener('click', function () {
 buttons.forEach(button => {
 
     button.addEventListener('click', function() {
-        if (button.classList == 'answer divbtn' && button.id != correctAnswer) {
+        if (button.classList == 'answer game-button' && button.id != correctAnswer) {
             incorrectSound.play();
-        } else if (button.classList == 'answer divbtn') {
+        } else if (button.classList == 'answer game-button') {
             correctSound.play();
             document.getElementById('answered').style.color = "green";
         } else {
@@ -175,7 +175,7 @@ function answerSelected(answer) {
     } else {
         scoreAmount += qstnScore;
         quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
-        <button class="divbtn" id="new-game">New Game</button>`;
+        <button class="game-button" id="new-game">New Game</button>`;
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
         document.getElementById('new-game').addEventListener('click', function () {
             location.reload();
@@ -256,7 +256,7 @@ function countdown() {
         clearInterval(interval);
     } else if (seconds == 9 && qstnNumber + 1 == games[gameTypeNumber].length) {
         quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
-    <button class="divbtn" id="new-game">New Game</button></div>`;
+    <button class="game-button" id="new-game">New Game</button></div>`;
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
         document.getElementById('new-game').addEventListener('click', function () {
             location.reload();

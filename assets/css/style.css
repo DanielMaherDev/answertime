@@ -5,87 +5,8 @@
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */}
 
+/* body styling */
 
-#logo a{
-    text-decoration: none;
-    color: black;
-    font-size: 1.2rem;
-    position: fixed;
-    top: 17px;
-    left: 15px;
-    letter-spacing: normal;
-}
-
-#logo a:hover{
-color:#cbf078;
-text-shadow:1px 1px #000
-}
-
-#sound{
-    width: 3rem;
-    height: 3rem;
-    position: fixed;
-    right: 10px;
-    top: 20px;
-    color: rgba(0, 0, 0, 0.7);
-    z-index: 2;
-    cursor: pointer;
-}
-
-#sound i{
-    font-size: 1.5rem;
-    display: none;
-}
-
-#sound i:hover{
-    text-shadow: 1px 1px black;
-    color:#cbf078;
-
-}
-
-button{
-    font-size: 1.5rem;
-    font-weight: bolder;
-    width: 90%;
-    cursor: pointer;
-}
-
-h1, h3, #score-amount{ 
-    font-size: 2rem;
-}
-h2, #max-score{
-    font-size: 1.5rem;
-}
-
-#question{
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-.divbtn:hover{
-    animation-name: interactive-buttons;
-    animation-duration: 2s;
-    color:black;
-    background-color: #cbf078;
-    outline: 5px solid black;
-}
-
-#answered{
-    text-transform: uppercase;
-}
-
-#question-number, #question{
-    display: block;
-    margin: 20px auto;
-}
-
-#question-number{
-    font-size: 1.5rem;
-}
-
-@keyframes interactive-buttons {
-   
-}
 html, body {
 	min-height: 100%;
 	color: #000;
@@ -106,17 +27,17 @@ body {
     font-size: 2rem;
 }
 
-#end{
-    margin-bottom: 50px;
-    
+#main-container{
+    background: rgba(255, 255, 255, 0.7);
+    text-align: center;
 }
 
+/* styles used in multiple sections */
 
-#question-number, #question, .answer, #progress-bar{
-    margin: 0 auto;
-    width: fit-content;
-    text-transform: uppercase;
+.active{
+    display: block !important;
 }
+
 .quiz-container, #welcome-screen, #question-result, #game-types{
     width: 100%;
     height: 100vh;
@@ -124,20 +45,94 @@ body {
 display: none;
 }
 
-#main-container{
-    background: rgba(255, 255, 255, 0.7);
-    text-align: center;
+/* button styling */
+button{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    width: 90%;
+    cursor: pointer;
+    color: #cbf078;
+    background-color: rgba(0, 0, 0, 1);
+    padding: 1rem 2rem;
+    min-width: 90%;
+    margin-bottom: 25px;
 }
 
-#question-result{
+button:hover{
+    animation-name: interactive-buttons;
+    animation-duration: 2s;
+    color:black;
+    background-color: #cbf078;
+    outline: 5px solid black;
+}
+
+/* large font size */
+h1, h3, #score-amount{ 
     font-size: 2rem;
-    padding-top: 50px;
-    line-height: 3.5rem;
 }
 
-#question-result span {
-    font-size: 2.5rem;
+/* medium font size */
+h2, #max-score{
+    font-size: 1.5rem;
 }
+
+/* Logo */
+#logo a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    position: fixed;
+    top: 17px;
+    left: 15px;
+    letter-spacing: normal;
+}
+
+#logo a:hover{
+color:#cbf078;
+text-shadow:1px 1px #000
+}
+
+/* Sound control */
+
+#sound{
+width: 3rem;
+height: 3rem;
+position: fixed;
+right: 10px;
+top: 20px;
+color: rgba(0, 0, 0, 0.7);
+z-index: 2;
+cursor: pointer;
+}
+
+#sound i{
+font-size: 1.5rem;
+display: none;
+}
+
+#sound i:hover{
+text-shadow: 1px 1px black;
+color:#cbf078;
+}
+
+/* how to play section */
+#instructions{
+    padding-top: 5%;
+    width:90%;
+    margin: 0 auto;
+    height: 100%;
+    display: none;
+    text-align:center;
+    font-weight: bold;
+}
+
+#instructions li{
+    padding: .75em 0;
+    text-align:left;
+
+}
+
+/* choose game */
 
 #game-types {
     display: none;
@@ -160,10 +155,9 @@ display: none;
     flex-direction: row;
 }
 
-.active{
-    display: block !important;
-}
+/* Main quiz section */
 
+/* progress bar */
 #progress-bar{
     border-radius: 50px;
     width: 80%;
@@ -184,6 +178,53 @@ width: 10%;
 background-color: #cbf078;
 }
 
+/* questions and answer options */
+#question-number, #question, .answer, #progress-bar{
+    margin: 0 auto;
+    width: fit-content;
+    text-transform: uppercase;
+}
+
+#question{
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#question-number{
+    font-size: 1.5rem;
+}
+
+#question-number, #question{
+    display: block;
+    margin: 20px auto;
+}
+
+.answer{
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+/* question-result section */
+
+#question-result{
+    font-size: 2rem;
+    padding-top: 50px;
+    line-height: 3.5rem;
+}
+
+#question-result span {
+    font-size: 2.5rem;
+}
+
+#answered{
+    text-transform: uppercase;
+}
+
+/* game over section */
+
+#end{
+    margin-bottom: 50px;
+}
 #result-text{
     margin: 25px auto;
 }
@@ -192,25 +233,13 @@ background-color: #cbf078;
     padding: 1.5rem 0;
 }
 
-.divbtn{
-    color: #cbf078;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 1rem 2rem;
-    min-width: 90%;
-    margin-bottom: 25px
-
-}
-
-
 /* animations */
-
 .exit-animation{
     animation-name: exit;
     animation-duration: 1.2s;
 }
 
 @keyframes exit {
-    
     40%{
         opacity:0;
     }
@@ -221,7 +250,6 @@ background-color: #cbf078;
         opacity: 0;
     }
 }
-
 
 .enter-animation{
     animation-name: enter;
@@ -238,26 +266,7 @@ background-color: #cbf078;
     }
 }
 
-
-#instructions{
-    padding-top: 5%;
-    width:100%;
-    height: 100%;
-    display: none;
-    text-align:center;
-}
-
-#instructions li{
-    padding: .75em 0;
-    text-align:left;
-
-}
-
-
-.answer{
-    margin-bottom: 10px;
-    font-size: 1rem;
-}
+/* for larger screen size */
 
 @media screen and (min-width:768px) {
     #main-container{
