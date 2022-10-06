@@ -5,6 +5,22 @@
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */}
 
+
+#logo a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    position: fixed;
+    top: 17px;
+    left: 15px;
+    letter-spacing: normal;
+}
+
+#logo a:hover{
+color:#cbf078;
+text-shadow:1px 1px #000
+}
+
 #sound{
     width: 3rem;
     height: 3rem;
@@ -19,6 +35,12 @@
 #sound i{
     font-size: 1.5rem;
     display: none;
+}
+
+#sound i:hover{
+    text-shadow: 1px 1px black;
+    color:#cbf078;
+
 }
 
 button{
@@ -251,5 +273,9 @@ button{
 
 #sound{
     right: 27%;
+}
+
+#logo a{
+    left: 28%;
 }
 }
