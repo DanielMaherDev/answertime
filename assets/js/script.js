@@ -14,7 +14,6 @@ const quiz = document.getElementsByClassName("quiz-container")[0];
 const welcomeScreen = document.getElementById("welcome-screen");
 const questionResult = document.getElementById("question-result");
 const resultText = document.getElementById("result-text");
-const nextQuestion = document.getElementById('next-question');
 let qstnNumber = 0;
 let currentQuestion = document.getElementById('question-number');
 let seconds = 0;
@@ -40,7 +39,7 @@ const instructions = document.getElementById('instructions');
 
 
 
-soundOn.addEventListener('click', function () {
+soundOn.addEventListener('click', function() {
     backgroundMusic.muted = true;
     incorrectSound.muted = true;
     correctSound.muted = true;
@@ -50,7 +49,7 @@ soundOn.addEventListener('click', function () {
 
 });
 
-soundOff.addEventListener('click', function () {
+soundOff.addEventListener('click', function() {
     backgroundMusic.muted = false;
     incorrectSound.muted = false;
     correctSound.muted = false;
@@ -76,7 +75,7 @@ buttons.forEach(button => {
 });
 
 
-function timeOut(){
+function timeOut() {
     incorrectSound.play();
 }
 
@@ -84,13 +83,13 @@ function timeOut(){
 
 function chooseGame() {
     welcomeScreen.classList.add('exit-animation');
-    setTimeout(function () {
+    setTimeout(function() {
         gameTypes.classList.add('active', 'enter-animation');
         welcomeScreen.classList.remove('active');
     }, 1000);
 
     gameType.forEach(type => {
-        type.addEventListener('click', function () {
+        type.addEventListener('click', function() {
             if (type == gameType[0]) {
                 maxScoreAmount = 100;
                 maxScoreText.innerText = maxScoreAmount;
@@ -108,9 +107,10 @@ function chooseGame() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
+    const nextQuestion = document.getElementById('next-question');
     answerDivs.forEach(answer => {
-        answer.addEventListener("click", function () {
+        answer.addEventListener("click", function() {
             nextQuestion.classList.add('enter-animation');
             selectedAnswer = answer;
             stopGame = true;
@@ -121,18 +121,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    howToPlay.addEventListener('click', function () {
+    howToPlay.addEventListener('click', function() {
         instructions.classList.add('active');
         welcomeScreen.classList.remove('active');
     });
 
-    howToClose.addEventListener('click', function () {
+    howToClose.addEventListener('click', function() {
         instructions.classList.remove('active');
         welcomeScreen.classList.add('active');
 
     });
 
-    nextQuestion.addEventListener("click", function () {
+    nextQuestion.addEventListener("click", function() {
         qstnNumber += 1;
         newQuestion();
     });
@@ -177,7 +177,7 @@ function answerSelected(answer) {
         quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
         <button class="game-button" id="new-game">New Game</button>`;
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
-        document.getElementById('new-game').addEventListener('click', function () {
+        document.getElementById('new-game').addEventListener('click', function() {
             location.reload();
         });
 
@@ -189,7 +189,7 @@ function startGame() {
     backgroundMusic.play();
     gameTypes.classList.remove('enter-animation');
     gameTypes.classList.add('exit-animation');
-    setTimeout(function () {
+    setTimeout(function() {
         quiz.classList.add('enter-animation', 'active');
         gameTypes.classList.remove('active');
         newQuestion();
@@ -214,7 +214,7 @@ CORRECT!<br>
     seconds = 0;
     setQuestion();
     clearInterval(interval);
-    interval = setInterval(function () {
+    interval = setInterval(function() {
         countdown();
     }, 1000); /* test code */
     /* declared outside the countdown function as it repeats */
@@ -258,7 +258,7 @@ function countdown() {
         quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
     <button class="game-button" id="new-game">New Game</button></div>`;
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
-        document.getElementById('new-game').addEventListener('click', function () {
+        document.getElementById('new-game').addEventListener('click', function() {
             location.reload();
         });
     } else if (seconds < 10 && stopGame != true) {

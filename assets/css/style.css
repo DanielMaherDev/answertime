@@ -179,9 +179,14 @@ background-color: #cbf078;
 }
 
 /* questions and answer options */
-#question-number, #question, .answer, #progress-bar{
+#question-number, #question, .answer{
     margin: 0 auto;
     width: fit-content;
+    text-transform: uppercase;
+}
+
+#progress-bar{  
+     margin: 0 auto;
     text-transform: uppercase;
 }
 
