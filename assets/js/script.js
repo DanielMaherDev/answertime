@@ -2,53 +2,115 @@ import {
     games
 } from "./questions.js";
 
+/* Audio */
 const backgroundMusic = new Audio('./answertime/../assets/audio/background-audio.mp3');
 const clickSound = new Audio('./answertime/../assets/audio/click.wav');
 const correctSound = new Audio('./answertime/../assets/audio/correct.mp3');
 const incorrectSound = new Audio('./answertime/../assets/audio/incorrect.mp3');
-const answerDivs = document.querySelectorAll('.answer');
-const quiz = document.getElementsByClassName("quiz-container")[0];
-const welcomeScreen = document.getElementById("welcome-screen");
-const questionResult = document.getElementById("question-result");
-const resultText = document.getElementById("result-text");
-const gameTypes = document.getElementById('game-types');
-let qstnNumber = 0;
-let seconds = 0;
-let gameTypeNumber;
 const soundOn = document.getElementsByClassName('fa-volume-high')[0];
 const soundOff = document.getElementsByClassName('fa-volume-xmark')[0];
+/* welcome screen */
+const welcomeScreen = document.getElementById("welcome-screen");
+/* choose game screen */
+const gameTypes = document.getElementById('game-types');
+let gameTypeNumber;
+/* question screen */
+const quiz = document.getElementsByClassName("quiz-container")[0];
+let qstnNumber = 0;
+let seconds = 0;
+const answerDivs = document.querySelectorAll('.answer');
+/* question result screen */
+const questionResult = document.getElementById("question-result");
+const resultText = document.getElementById("result-text");
 let correctAnswer;
 let scoreAmount = parseInt(document.getElementById('score-amount').innerText);
 let interval;
 let maxScoreAmount;
+let stopGame;
 
-soundOn.addEventListener('click', function () {
-    backgroundMusic.muted = true;
-    incorrectSound.muted = true;
-    correctSound.muted = true;
-    clickSound.muted = true;
-    soundOff.classList.add('active');
-    soundOn.classList.remove('active');
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll('.game-button');
 
+    /* funnctionality which checks which type of button has been selected, and plays a corresponding sound */
+    buttons.forEach(button => {
+
+        button.addEventListener('click', function () {
+            if (button.classList == 'answer game-button' && button.id != correctAnswer) {
+                incorrectSound.play();
+            } else if (button.classList == 'answer game-button') {
+                correctSound.play();
+                document.getElementById('answered').style.color = "green";
+            } else {
+                clickSound.play();
+            }
+        });
+    });
+    /* This changes the audio to muted */
+    soundOn.addEventListener('click', function () {
+        backgroundMusic.muted = true;
+        incorrectSound.muted = true;
+        correctSound.muted = true;
+        clickSound.muted = true;
+        soundOff.classList.add('active');
+        soundOn.classList.remove('active');
+    });
+    /* This changes the audio to unmuted */
+    soundOff.addEventListener('click', function () {
+        backgroundMusic.muted = false;
+        incorrectSound.muted = false;
+        correctSound.muted = false;
+        clickSound.muted = false;
+        soundOff.classList.remove('active');
+        soundOn.classList.add('active');
+    });
+
+    const startButton = document.getElementById('start-button');
+    const howToPlay = document.getElementById('how-to-play');
+    const howToClose = document.getElementById('how-to-close');
+    const nextQuestion = document.getElementById('next-question');
+    const instructions = document.getElementById('instructions');
+    /***
+     * The below will listen for which button on the initial screen has been selected and act accordingly
+     */
+    startButton.addEventListener('click', chooseGame);
+
+    howToPlay.addEventListener('click', function () {
+        instructions.classList.add('active');
+        welcomeScreen.classList.remove('active');
+    });
+
+    /* Functionality to close the how to play section */
+    howToClose.addEventListener('click', function () {
+        instructions.classList.remove('active');
+        welcomeScreen.classList.add('active');
+    });
+
+    /* This will trigger when next question has been selected and will trigger the newQuestion function */
+    nextQuestion.addEventListener("click", function () {
+        qstnNumber += 1;
+        newQuestion();
+    });
 });
 
-soundOff.addEventListener('click', function () {
-    backgroundMusic.muted = false;
-    incorrectSound.muted = false;
-    correctSound.muted = false;
-    clickSound.muted = false;
-    soundOff.classList.remove('active');
-    soundOn.classList.add('active');
-
-});
-
-
+/* plays sound when time runs up for question */
 function timeOut() {
     incorrectSound.play();
 }
 
+/* once a gameType has been chosen, the below function will run */
+function startGame() {
+    backgroundMusic.play();
+    gameTypes.classList.remove('enter-animation');
+    gameTypes.classList.add('exit-animation');
+    setTimeout(function () {
+        quiz.classList.add('enter-animation', 'active');
+        gameTypes.classList.remove('active');
+        newQuestion();
 
+    }, 1000);
+}
 
+/* This function triggers when the initial start button is selected, and displays the choose game section */
 function chooseGame() {
     const maxScoreText = document.getElementById('max-score');
     const gameType = document.querySelectorAll('.game-type');
@@ -77,30 +139,51 @@ function chooseGame() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll('.game-button');
-    buttons.forEach(button => {
+/* display new question */
+function newQuestion() {
+    let currentQuestion = document.getElementById('question-number');
+    resultText.innerHTML = `You answered:<br> <strong><span id="answered"></span></strong><br> in <span
+    id="seconds"></span> seconds! <br>
+CORRECT!<br> 
++<span id="current-question-score"></span> points`;
+    quiz.classList.add('active');
+    questionResult.classList.remove("active");
+    stopGame = false;
+    currentQuestion.innerText = qstnNumber + 1;
+    seconds = 0;
+    setQuestion();
+    clearInterval(interval);
+    interval = setInterval(function () {
+        countdown();
+    }, 1000); 
+    /**
+     * This function will set the question and answer values for the quiz
+     */
+    function setQuestion() {
+        const countdownBar = document.getElementsByClassName('progress');
 
-        button.addEventListener('click', function () {
-            if (button.classList == 'answer game-button' && button.id != correctAnswer) {
-                incorrectSound.play();
-            } else if (button.classList == 'answer game-button') {
-                correctSound.play();
-                document.getElementById('answered').style.color = "green";
-            } else {
-                clickSound.play();
+        if (qstnNumber < games[gameTypeNumber].length) {
+
+            document.getElementById('question').innerHTML = games[gameTypeNumber][qstnNumber].question;
+            correctAnswer = games[gameTypeNumber][qstnNumber].correct;
+            let answerOptions = [];
+            answerOptions = Object.values(games[gameTypeNumber][qstnNumber]);
+            answerOptions = answerOptions.slice(1, 5);
+            for (let i = 0; i < answerDivs.length; i++) {
+                answerDivs[i].innerHTML = answerOptions[i];
             }
-        });
+        } else {
+            return;
+        }
+        for (let bar of countdownBar) {
+            bar.style.backgroundColor = "#cbf078";
+        }
+    }
 
-    });
-    
-    const startButton = document.getElementById('start-button');
-    const howToPlay = document.getElementById('how-to-play');
-    const howToClose = document.getElementById('how-to-close');
-    const nextQuestion = document.getElementById('next-question');
-    const instructions = document.getElementById('instructions');
+    setQuestion();
+}
 
-    startButton.addEventListener('click', chooseGame);
+/* This will listen for when an answer has been selected and call a function*/
     answerDivs.forEach(answer => {
         answer.addEventListener("click", function () {
             nextQuestion.classList.add('enter-animation');
@@ -110,24 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    howToPlay.addEventListener('click', function () {
-        instructions.classList.add('active');
-        welcomeScreen.classList.remove('active');
-    });
-
-    howToClose.addEventListener('click', function () {
-        instructions.classList.remove('active');
-        welcomeScreen.classList.add('active');
-
-    });
-
-    nextQuestion.addEventListener("click", function () {
-        qstnNumber += 1;
-        newQuestion();
-    });
-});
-
-
+/* This is run when an answer has been selected from the options */
 function answerSelected(answer) {
     stopGame = true;
     let qstnScore;
@@ -174,71 +240,8 @@ function answerSelected(answer) {
 
 }
 
-function startGame() {
-    backgroundMusic.play();
-    gameTypes.classList.remove('enter-animation');
-    gameTypes.classList.add('exit-animation');
-    setTimeout(function () {
-        quiz.classList.add('enter-animation', 'active');
-        gameTypes.classList.remove('active');
-        newQuestion();
+/* This function controls the timer */
 
-    }, 1000);
-
-    /*play audio music in background*/
-
-    /* hide the welcome screen and show the main quiz container */
-}
-let stopGame;
-
-function newQuestion() {
-    let currentQuestion = document.getElementById('question-number');
-    resultText.innerHTML = `You answered:<br> <strong><span id="answered"></span></strong><br> in <span
-    id="seconds"></span> seconds! <br>
-CORRECT!<br> 
-+<span id="current-question-score"></span> points`;
-    quiz.classList.add('active');
-    questionResult.classList.remove("active");
-    stopGame = false;
-    currentQuestion.innerText = qstnNumber + 1;
-    seconds = 0;
-    setQuestion();
-    clearInterval(interval);
-    interval = setInterval(function () {
-        countdown();
-    }, 1000); /* test code */
-    /* declared outside the countdown function as it repeats */
-    /** This is the function which controls the timer, and timeout */
-
-    /**
-     * The below function will set the question and answer values for the quiz
-     */
-    function setQuestion() {
-        const countdownBar = document.getElementsByClassName('progress');
-
-        if (qstnNumber < games[gameTypeNumber].length) {
-
-            document.getElementById('question').innerHTML = games[gameTypeNumber][qstnNumber].question;
-            correctAnswer = games[gameTypeNumber][qstnNumber].correct;
-            let answerOptions = [];
-            answerOptions = Object.values(games[gameTypeNumber][qstnNumber]);
-            answerOptions = answerOptions.slice(1, 5);
-            for (let i = 0; i < answerDivs.length; i++) {
-                answerDivs[i].innerHTML = answerOptions[i];
-            }
-
-
-        } else {
-            return;
-        }
-        for (let bar of countdownBar) {
-            bar.style.backgroundColor = "#cbf078";
-        }
-    }
-
-    setQuestion();
-}
-/* this is being called twice on the newGame function ??*/
 function countdown() {
     if (seconds == 9 && qstnNumber + 1 < games[gameTypeNumber].length) {
         resultText.innerHTML = `TIMES UP!`;

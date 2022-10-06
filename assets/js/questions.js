@@ -113,7 +113,7 @@ let games =[
      choiceD: "Pink Floyd",
      correct: "D",
    },{
-     question: "What was Ed Sheeran born?",
+     question: "Where was Ed Sheeran born?",
      choiceA: "Barry Island",
      choiceB: "Manchester",
      choiceC: "North London",
