@@ -20,6 +20,7 @@ let qstnNumber = 0;
 let seconds = 0;
 const answerDivs = document.querySelectorAll('.answer');
 /* question result screen */
+let nextQuestion = document.getElementById('next-question');
 const questionResult = document.getElementById("question-result");
 const resultText = document.getElementById("result-text");
 let correctAnswer;
@@ -67,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const startButton = document.getElementById('start-button');
     const howToPlay = document.getElementById('how-to-play');
     const howToClose = document.getElementById('how-to-close');
-    const nextQuestion = document.getElementById('next-question');
     const instructions = document.getElementById('instructions');
     /***
      * The below will listen for which button on the initial screen has been selected and act accordingly
