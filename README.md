@@ -1,4 +1,4 @@
-[hero image](assets/readmeimages/hero.png)
+![hero image](assets/readmeimages/hero.png)
 
 # Answer-Time Quiz
 
