@@ -7,6 +7,8 @@ const backgroundMusic = new Audio('./answertime/../assets/audio/background-audio
 const clickSound = new Audio('./answertime/../assets/audio/click.wav');
 const correctSound = new Audio('./answertime/../assets/audio/correct.mp3');
 const incorrectSound = new Audio('./answertime/../assets/audio/incorrect.mp3');
+const gameOver = new Audio('./answertime/../assets/audio/gameover.mp3');
+
 const soundOn = document.getElementsByClassName('fa-volume-high')[0];
 const soundOff = document.getElementsByClassName('fa-volume-xmark')[0];
 /* welcome screen */
@@ -52,6 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
         incorrectSound.muted = true;
         correctSound.muted = true;
         clickSound.muted = true;
+        gameOver.muted = true;
+
         soundOff.classList.add('active');
         soundOn.classList.remove('active');
     });
@@ -61,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         incorrectSound.muted = false;
         correctSound.muted = false;
         clickSound.muted = false;
+        gameOver.muted = false;
         soundOff.classList.remove('active');
         soundOn.classList.add('active');
     });
@@ -142,10 +147,10 @@ function chooseGame() {
 /* display new question */
 function newQuestion() {
     let currentQuestion = document.getElementById('question-number');
-    resultText.innerHTML = `You answered:<br> <strong><span id="answered"></span></strong><br> in <span
-    id="seconds"></span> seconds! <br>
-CORRECT!<br> 
-+<span id="current-question-score"></span> points`;
+    resultText.innerHTML = `You answered:<br> <strong><span class="big-text" id="answered"></span></strong><br> in <span
+    class="big-text" id="seconds"></span> seconds! <br>
+ CORRECT!<br>
+ +<span id="current-question-score"></span> points`;
     quiz.classList.add('active');
     questionResult.classList.remove("active");
     stopGame = false;
@@ -228,8 +233,9 @@ function answerSelected(answer) {
         }
         seconds = 0;
     } else {
+        gameOver.play();
         scoreAmount += qstnScore;
-        quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
+        quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored <span class="big-text">${scoreAmount}</span>/${maxScoreAmount}</div>
         <button class="game-button" id="new-game">New Game</button>`;
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
         document.getElementById('new-game').addEventListener('click', function () {

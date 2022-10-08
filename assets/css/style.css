@@ -217,7 +217,7 @@ background-color: #cbf078;
     line-height: 3.5rem;
 }
 
-#question-result span {
+.big-text{
     font-size: 2.5rem;
 }
 
@@ -291,5 +291,9 @@ button{
 
 #logo a{
     left: 28%;
+}
+
+#question-result{
+    padding-top: 100px;
 }
 }
