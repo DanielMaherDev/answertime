@@ -160,7 +160,7 @@ function newQuestion() {
     clearInterval(interval);
     interval = setInterval(function () {
         countdown();
-    }, 1000); 
+    }, 1000);
     /**
      * This function will set the question and answer values for the quiz
      */
@@ -189,14 +189,14 @@ function newQuestion() {
 }
 
 /* This will listen for when an answer has been selected and call a function*/
-    answerDivs.forEach(answer => {
-        answer.addEventListener("click", function () {
-            nextQuestion.classList.add('enter-animation');
-            let selectedAnswer = answer;
-            stopGame = true;
-            answerSelected(selectedAnswer);
-        });
+answerDivs.forEach(answer => {
+    answer.addEventListener("click", function () {
+        nextQuestion.classList.add('enter-animation');
+        let selectedAnswer = answer;
+        stopGame = true;
+        answerSelected(selectedAnswer);
     });
+});
 
 /* This is run when an answer has been selected from the options */
 function answerSelected(answer) {
@@ -234,7 +234,9 @@ function answerSelected(answer) {
         seconds = 0;
     } else {
         gameOver.play();
-        scoreAmount += qstnScore;
+        if (answer.getAttribute('id') == games[gameTypeNumber][qstnNumber].correct) {
+            scoreAmount += qstnScore;
+        }
         quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored <span class="big-text">${scoreAmount}</span>/${maxScoreAmount}</div>
         <button class="game-button" id="new-game">New Game</button>`;
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);

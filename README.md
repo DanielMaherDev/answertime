@@ -80,9 +80,9 @@ The choose game screen allows the user to choose which quiz type they would like
 
 ### How to Play screen
 
-The rules menu shows the rules of the game. The rules are based on the international rules but using a 8x8 board. The text can be scrolled up and down.
+The how to play screen provides the user with the guidelines of the game, along with a button to return to the welcome screen.
 
-![Rules menu](assets/images/rules_menu.png)
+![How To Play](assets/readmeimages/how-to-play.png)
 
 ### Results Menu
 
