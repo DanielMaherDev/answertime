@@ -72,18 +72,13 @@ It provides the user with a breif description of the game, along with a start bu
 
 ![Welcome screen](assets/readmeimages/welcome-screen.png)
 
-Once the player has started the game, the the Start Game button will be replaced by a button to restart the game.
-All menus pages have a button to return to the main page and a button to close the menu.
+### Choose Game screen
 
-![Restart Game](assets/images/reset_game.png)
+The choose game screen allows the user to choose which quiz type they would like to play (General Knowledge/Music). 
 
-### Options Menu
+![Choose Game](assets/readmeimages/choose-game.png)
 
-The options menu allows the user to change the game settings. The user can change the sound On/Off and the higlight On/Off. The highlight is the highlight of the possible moves of the selected piece. The sound is the sound of the pieces moving and the sound of the pieces being captured.
-
-![Options menu](assets/images/options_menu.png)
-
-### Rules Menu
+### How to Play screen
 
 The rules menu shows the rules of the game. The rules are based on the international rules but using a 8x8 board. The text can be scrolled up and down.
 
