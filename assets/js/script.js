@@ -202,6 +202,7 @@ answerDivs.forEach(answer => {
 function answerSelected(answer) {
     stopGame = true;
     let qstnScore;
+    let finalAnswer;
     if (seconds == 0) {
         qstnScore = 10;
     } else {
@@ -236,8 +237,12 @@ function answerSelected(answer) {
         gameOver.play();
         if (answer.getAttribute('id') == games[gameTypeNumber][qstnNumber].correct) {
             scoreAmount += qstnScore;
+           finalAnswer = `Correct! <br> +${qstnScore}`;
         }
-        quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored <span class="big-text">${scoreAmount}</span>/${maxScoreAmount}</div>
+        else{
+            finalAnswer = 'Incorrect!'
+        }
+        quiz.innerHTML = `<div id="end">${finalAnswer}<br>GAME OVER!<br><br> You scored <span class="big-text">${scoreAmount}</span>/${maxScoreAmount}</div>
         <button class="game-button" id="new-game">New Game</button>`;
         document.getElementById('current-question-score').innerText = Math.floor(10.9 - seconds);
         document.getElementById('new-game').addEventListener('click', function () {
