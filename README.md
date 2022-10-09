@@ -84,11 +84,21 @@ The how to play screen provides the user with the guidelines of the game, along 
 
 ![How To Play](assets/readmeimages/how-to-play.png)
 
-### Results Menu
+### Question screen
 
-The results menu shows the results of the game. The results are the number of games won by the player and the number of games won by the computer. The results are saved in the local storage of the browser.
+The question screen contains the current question number. It also contains a countdown bar, which decreases every second for 10 seconds. It also contains the current question, along with 4 buttons for each answer.
+Finally, it containes the players current overall score, and the total possible score.
+![Question Screen](assets/readmeimages/question-screen.png)
 
-![Results menu](assets/images/results_menu.png)
+### Correct/Incorrect Answer screen
+
+The correct answer screen displays the selected answer, and the number of seconds it took to select this ansswer. It also displays the number of points added to the overall score. Finally, it displays a button which can be selected to continue to the next question.
+
+![Correct Answer](assets/readmeimages/correct-answer.png)
+
+The incorrect answer screen simply displays the incorrect selected answer, along with a button to continue to the nect question.
+
+![Incorrect Answer](assets/readmeimages/incorrect-answer.png)
 
 ### Game
 

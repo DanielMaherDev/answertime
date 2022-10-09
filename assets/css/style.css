@@ -191,6 +191,11 @@ background-color: #cbf078;
     text-transform: uppercase;
 }
 
+
+#question-number-container{
+    margin-top: 35px;
+}
+
 #progress-bar{  
      margin: 0 auto;
     text-transform: uppercase;
@@ -203,6 +208,7 @@ background-color: #cbf078;
 
 #question-number{
     font-size: 1.5rem;
+    margin: 0 auto !important
 }
 
 #question-number, #question{
