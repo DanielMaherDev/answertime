@@ -240,10 +240,9 @@ function answerSelected(answer) {
         gameOver.play();
         if (answer.getAttribute('id') == games[gameTypeNumber][qstnNumber].correct) {
             scoreAmount += qstnScore;
-           finalAnswer = `Correct! <br> +${qstnScore}`;
-        }
-        else{
-            finalAnswer = 'Incorrect!'
+            finalAnswer = `<span style="color: green">Correct! <br> +${qstnScore}<br></span>`;
+        } else {
+            finalAnswer = '<span style="color: red">Incorrect!<br></span>'
         }
         quiz.innerHTML = `<div id="end">${finalAnswer}<br>GAME OVER!<br><br> You scored <span class="big-text">${scoreAmount}</span>/${maxScoreAmount}</div>
         <button class="game-button" id="new-game">New Game</button>`;
