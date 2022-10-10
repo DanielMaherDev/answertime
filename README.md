@@ -100,14 +100,11 @@ The incorrect answer screen simply displays the incorrect selected answer, along
 
 ![Incorrect Answer](assets/readmeimages/incorrect-answer.png)
 
-### Game
+### Timeout Screen
 
-The game page is where the game will be played, it has a board with 64 squares, 32 of which are occupied by 16 black and 16 white pieces. The pieces are placed in the 12 squares closest to each player. The objective of the game is to capture all the opponent's pieces or to block them so that they cannot move.
-Once in the Game, the user can go back to the menu using the small cog icon in the top right corner of the screen.
+The timeout screen displays if 10 seconds have passed without an answer being selected. This follows the same template as the incorrect answer screen but just contains the text Times Up! along wit a button to proceed.
 
-![Game](assets/images/game_play.png)
-
-## Testing
+## Game over screen
 
 The website was tested on a desktop computer and a mobile phone.
 Also, W3C and Jigsaw validation was used to validate the website HTML and CSS.

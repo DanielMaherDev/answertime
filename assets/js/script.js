@@ -34,7 +34,7 @@ let stopGame;
 document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll('.game-button');
 
-    /* funnctionality which checks which type of button has been selected, and plays a corresponding sound */
+    /*  checks which type of button has been selected, and plays a corresponding sound */
     buttons.forEach(button => {
 
         button.addEventListener('click', function () {
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-    /* This changes the audio to muted */
+    /* changes the audio to muted */
     soundOn.addEventListener('click', function () {
         backgroundMusic.muted = true;
         incorrectSound.muted = true;
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         soundOff.classList.add('active');
         soundOn.classList.remove('active');
     });
-    /* This changes the audio to unmuted */
+    /* changes the audio to unmuted */
     soundOff.addEventListener('click', function () {
         backgroundMusic.muted = false;
         incorrectSound.muted = false;
@@ -102,7 +102,7 @@ function timeOut() {
     incorrectSound.play();
 }
 
-/* once a gameType has been chosen, the below function will run */
+/* gametype chosen */
 function startGame() {
     backgroundMusic.play();
     gameTypes.classList.remove('enter-animation');
@@ -115,7 +115,7 @@ function startGame() {
     }, 1000);
 }
 
-/* This function triggers when the initial start button is selected, and displays the choose game section */
+/* display game choices */
 function chooseGame() {
     const maxScoreText = document.getElementById('max-score');
     const gameType = document.querySelectorAll('.game-type');
@@ -162,7 +162,7 @@ function newQuestion() {
         countdown();
     }, 1000);
     /**
-     * This function will set the question and answer values for the quiz
+     * set the question and answer values for the quiz
      */
     function setQuestion() {
         const countdownBar = document.getElementsByClassName('progress');
@@ -188,7 +188,7 @@ function newQuestion() {
     setQuestion();
 }
 
-/* This will listen for when an answer has been selected and call a function*/
+/* Listen for answer selection*/
 answerDivs.forEach(answer => {
     answer.addEventListener("click", function () {
         nextQuestion.classList.add('enter-animation');
@@ -198,17 +198,19 @@ answerDivs.forEach(answer => {
     });
 });
 
-/* This is run when an answer has been selected from the options */
+/* Answer selected function */
 function answerSelected(answer) {
     stopGame = true;
     let qstnScore;
     let finalAnswer;
+    /* Set score */
     if (seconds == 0) {
         qstnScore = 10;
     } else {
         qstnScore = 11 - seconds;
     }
     clearInterval(interval);
+    /* Set result content */
     if (qstnNumber + 1 < games[gameTypeNumber].length) {
         questionResult.classList.add("active");
         quiz.classList.remove("active");
@@ -227,12 +229,13 @@ function answerSelected(answer) {
             }
             document.getElementById('current-question-score').innerText = qstnScore;
 
-
+            /* Incorrect answer */
         } else {
             document.getElementById('result-text').innerHTML = `You answered: <br> <span style="color: red; text-transform: uppercase">${answer.innerText}</span> <br> Incorrect! <br> 
             </span>`;
         }
         seconds = 0;
+        /* Final question answer */
     } else {
         gameOver.play();
         if (answer.getAttribute('id') == games[gameTypeNumber][qstnNumber].correct) {
@@ -253,15 +256,17 @@ function answerSelected(answer) {
 
 }
 
-/* This function controls the timer */
+/* Set timer */
 
 function countdown() {
+    /* Timeout  */
     if (seconds == 9 && qstnNumber + 1 < games[gameTypeNumber].length) {
         resultText.innerHTML = `TIMES UP!`;
         questionResult.classList.add('active');
         quiz.classList.remove('active');
         timeOut();
         clearInterval(interval);
+        /* Final Question answered */
     } else if (seconds == 9 && qstnNumber + 1 == games[gameTypeNumber].length) {
         quiz.innerHTML = `<div id="end">GAME OVER!<br><br> You scored ${scoreAmount}/${maxScoreAmount}</div>
     <button class="game-button" id="new-game">New Game</button></div>`;
@@ -269,11 +274,13 @@ function countdown() {
         document.getElementById('new-game').addEventListener('click', function () {
             location.reload();
         });
+        /* New question */
     } else if (seconds < 10 && stopGame != true) {
         ++seconds;
         let countdownBarStage = document.getElementById(`seconds${seconds}`);
         countdownBarStage.style.backgroundColor = "black";
     } else {
+        /* Stop timer */
         clearInterval(interval);
         running = false;
     }
