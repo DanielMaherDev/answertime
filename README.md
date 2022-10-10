@@ -131,31 +131,35 @@ Jigsaw Validation:
 
 Jshint validator was used to validate the JavaScript code.
 
-![Jshint](assets/images/javascript_test.png)
+![Jshint](assets/readmeimages/jshint.png)
 
-One warning here but was part of the implementation of the game.
-Functions declared within loops referencing an outer scoped variable may lead to confusing semantics.
+Lighhouse score:
 
-Lighhouse mobile and desktop testing:
+![LightHouse Score](assets/readmeimages/lighthouse.png)
 
-![LightHouse Mobile](assets/images/lighthouse_mobile.png)
 
-![LightHouse Desktop](assets/images/lighthouse_desktop.png)
+## Resolved Bugs
 
-## Unfixed Bugs
 
-- Based on the checkers rules, the player needs to capture as many pieces as possible. The game is not programmed to do that neither to check if the player is taking the best possible move. The game is programmed to force a take.
+| Bug        | Resolution      |     
+| ------------- |:-------------|
+| Timer increased in speed upon each subsequent question      | Yes - Clear timeout on each new question | 
+| Timer increased when buttons were clicked multiple times quickly| Yes - Clear timeout on each button click |
+| If no answer was selected on the final question, nothing would happen | Yes - created an if/else to check if an answer was selected after timer runs out      | 
+| Timer did not function upon selecting new game      | Yes - Reloaded entire page instead of calling function |
 
-- The computer is not programmed to take the best possible move. The computer is programmed to take a random piece.
+ ## Unesolved Bugs
 
-- It was reported to crash in Android, but I was not able to reproduce the error.
+| Bug   
+| (Unable to replicate currently - but not confirmed resolved) - Occasionally some have previously noticed that the next question would not load after selecting next question
 
-## Features Left to Implement
+## Features I would like to implement
 
-- Implement a better AI for the computer.
-- A timer to limit the time of each player.
-- A smoother animation for the pieces moving.
-- In the future, a multiplayer mode.
+- Option for different game difficulty (Less time to answer)
+- Advanced sound control (music on/off and/or sound effects on/off)
+- More quiz games 
+- Question randomization
+- A leaderboard (when the skills for this have been learned)
 
 ## Deployment
 
