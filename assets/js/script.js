@@ -242,7 +242,7 @@ function answerSelected(answer) {
             scoreAmount += qstnScore;
             finalAnswer = `<span style="color: green">Correct! <br> +${qstnScore}<br></span>`;
         } else {
-            finalAnswer = '<span style="color: red">Incorrect!<br></span>'
+            finalAnswer = '<span style="color: red">Incorrect!<br></span>';
         }
         quiz.innerHTML = `<div id="end">${finalAnswer}<br>GAME OVER!<br><br> You scored <span class="big-text">${scoreAmount}</span>/${maxScoreAmount}</div>
         <button class="game-button" id="new-game">New Game</button>`;
@@ -281,6 +281,5 @@ function countdown() {
     } else {
         /* Stop timer */
         clearInterval(interval);
-        running = false;
     }
 }

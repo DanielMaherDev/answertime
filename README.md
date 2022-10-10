@@ -33,11 +33,10 @@ The interactive code was developed in Javascript and the interface was developed
   - [Credits](#credits)
   - [Acknowledgements](#acknowledgements)
 
-## User Experience
-
+ 
 ## Design
 
-This game was designed with a mobile first approach. The CSS was built to be compatible with smaller screen sizes first, and was scaled for larger screens where appropriate using media queries.
+This game was designed with a <strong>mobile first</strong> approach. The CSS was built to be compatible with smaller screen sizes first, and was scaled for larger screens where appropriate using media queries.
 
 The game is designed to be as intuitive as possible, with clear distinction for interactive elements via color scheme & hover effects.
 
@@ -88,6 +87,7 @@ The how to play screen provides the user with the guidelines of the game, along 
 
 The question screen contains the current question number. It also contains a countdown bar, which decreases every second for 10 seconds. It also contains the current question, along with 4 buttons for each answer.
 Finally, it containes the players current overall score, and the total possible score.
+
 ![Question Screen](assets/readmeimages/question-screen.png)
 
 ### Correct/Incorrect Answer screen
@@ -104,18 +104,30 @@ The incorrect answer screen simply displays the incorrect selected answer, along
 
 The timeout screen displays if 10 seconds have passed without an answer being selected. This follows the same template as the incorrect answer screen but just contains the text Times Up! along wit a button to proceed.
 
-## Game over screen
+### Game over screen
 
-The website was tested on a desktop computer and a mobile phone.
-Also, W3C and Jigsaw validation was used to validate the website HTML and CSS.
+This screen displays the result of their final answer, their overall score, and a button to start a new game.
+
+![Game Over](assets/readmeimages/game-over.png)
+
+## Testing
+
+This website was tested in the following instances:
+ <ul>
+  <li>Windows PC running Google Chrome Version 105.0.5195.127 (Official Build) (64-bit)
+</li>
+<li>MacBook Pro running Google Chrome (version unknown)</li>
+<li>Android smartphone running Google Chrome Version 106.0.5249.79</li>
+<li>iPhone running Safari</li>
+</ul>
 
 W3C Validation:
 
-[W3C](assets/images/W3C.png) -->
+[W3C](assets/readmeimages/w3c.png) -->
 
 Jigsaw Validation:
 
-![Jigsaw](assets/images/jigsaw.png)
+![Jigsaw](assets/readmeimages/css.png)
 
 Jshint validator was used to validate the JavaScript code.
 
