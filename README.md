@@ -49,15 +49,6 @@ For this project, I decided to keep the color scheme pretty simple. I felt the b
 ![hero image](assets/readmeimages/palette.png)
 
 
-#### Strategy
-
-- Site goals
-
-  - The main goal of the site is to provide a quiz which is interactive, and fun to play, providing feedback to user inputs.
-  - To have a responsive design that is easy to use on any device.
-- User goals
-  - The user goals are to have a fun and interactive game to play.
-  - The user can play the game on any device.
 
 ## Technologies
 
