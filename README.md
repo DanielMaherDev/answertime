@@ -62,6 +62,15 @@ The technologies used in this project were HTML, CSS and JavaScript. The HTML wa
     * GitHub
     * [Am I Responsive](http://ami.responsivedesign.is/) to test responsiveness
 
+## User Stories
+
+| User story        | Implementation |     
+| ------------- |:-------------|
+| User wants to be able to toggle audio        | Have added button to turn audiio on/off |     
+| User would like to choose a quiz type to be tested on different knowledge       | Added multiple quiz options |     
+| User would like to receive costant feedback on progress  | Add overall score to question screen, and add previous questions score to result screen |     
+| User would like some instructions, so that they can understand how to play the game.
+  | Add a how to play button to the welcome screen, which shown the user instructions upon clicking |     
 
 ## Features
 
