@@ -56,10 +56,12 @@ It is designed with each section of the game structured in its own div within th
 
 The technologies used in this project were HTML, CSS and JavaScript. The HTML was used to create the structure of the page, the CSS was used to style the page and the JavaScript was used to make the entire game work.
 
-    * HTML
-    * CSS
+    * HTML5
+    * CSS3
     * JavaScript
     * GitHub
+    * [Am I Responsive](http://ami.responsivedesign.is/) to test responsiveness
+
 
 ## Features
 
@@ -150,8 +152,8 @@ Lighhouse score:
 
  ## Unesolved Bugs
 
-| Bug   
-| (Unable to replicate currently - but not confirmed resolved) - Occasionally some have previously noticed that the next question would not load after selecting next question
+ Bug   
+(Unable to replicate currently - but not confirmed resolved) - Occasionally some have previously noticed that the next question would not load after selecting next question
 
 ## Features I would like to implement
 
