@@ -51,6 +51,8 @@ For this project, I decided to keep the color scheme pretty simple. I felt the b
 
 ## Wireframe
 
+Due to the simplicity of the design, all devices follow the same structured wireframe, with the only major difference being that the main container for the quiz is set to 50% width on larger screens.
+
 ![wireframe](assets/readmeimages/wireframe.png)
 
 
@@ -173,9 +175,15 @@ Lighhouse score:
 - Question randomization
 - A leaderboard (when the skills for this have been learned)
 
-## Deployment
 
-- The game was deployed on GitHub pages.
+# Deployment 
+This website is deployed to GitHub.
+To deploy to GitHub, I completed the following steps
+1. Login or signup to [GitHub](https://github.com/)
+2. Find the relevant repo, which is in this case ['answertime'](https://github.com/DanielMaherDev/answertime)
+3. Go to the repository settings, and within here select 'pages'
+5. Select `main` in the Source drop down box below the 'Build and deployment' title and click save.
+6. Wait for the live site to become active. Upon reloading a link will appear for the site
 
 ## Credits
 
