@@ -42,6 +42,13 @@ The game is designed to be as intuitive as possible, with clear distinction for 
 
 It is designed with each section of the game structured in its own div within the HTML, to allow for easier readability, scalability and de-bugging.
 
+## Color Scheme
+
+For this project, I decided to keep the color scheme pretty simple. I felt the below colors fulfilled what I required, with the expection of the 'correct/incorrect' colors shown on the question result screen. In this specific circumstance I opted for more primary colors to best portray the result.
+
+![hero image](assets/readmeimages/palette.png)
+
+
 #### Strategy
 
 - Site goals
@@ -69,8 +76,7 @@ The technologies used in this project were HTML, CSS and JavaScript. The HTML wa
 | User wants to be able to toggle audio        | Have added button to turn audiio on/off |     
 | User would like to choose a quiz type to be tested on different knowledge       | Added multiple quiz options |     
 | User would like to receive costant feedback on progress  | Add overall score to question screen, and add previous questions score to result screen |     
-| User would like some instructions, so that they can understand how to play the game.
-  | Add a how to play button to the welcome screen, which shown the user instructions upon clicking |     
+| User would like some instructions, so that they can understand how to play the game.| Add a how to play button to the welcome screen, which shown the user instructions upon clicking |     
 
 ## Features
 
@@ -179,15 +185,5 @@ Lighhouse score:
 ## Credits
 
 - Stack Overflow
-- Guido, my mentor
+- Harry, my mentor
 - w3Schools
-- This channel that teaches cheker's https://www.youtube.com/watch?v=WD3NTNQElew
-- developer.mozilla.org (where I passed most of my time)
-
-## Acknowledgements
-
-- My mentor for saving me from starting in a wrong way, which would make the project impossible to finish.
-- My colleagues for the slack channel.
-- The tutors for the help.
-- My last hackathon team which tested the game and gave great feedbacks
-
