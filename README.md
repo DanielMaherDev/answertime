@@ -49,6 +49,10 @@ For this project, I decided to keep the color scheme pretty simple. I felt the b
 ![hero image](assets/readmeimages/palette.png)
 
 
+## Wireframe
+
+![wireframe](assets/readmeimages/wireframe.png)
+
 
 ## Technologies
 
@@ -131,7 +135,7 @@ This website was tested in the following instances:
 
 W3C Validation:
 
-[W3C](assets/readmeimages/w3c.png) -->
+![W3C](assets/readmeimages/w3c.png) -->
 
 Jigsaw Validation:
 
