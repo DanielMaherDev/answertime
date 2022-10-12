@@ -14,7 +14,7 @@ The interactive code was developed in Javascript and the interface was developed
 
 ## Table of Contents
 
-- [Answer-Time Quiz](#answertime-quiz)
+- [Answer-Time Quiz](#answer-time-quiz)
   - [Introduction](#introduction)
   - [Table of Contents](#table-of-contents)
   - [Design](#design)
