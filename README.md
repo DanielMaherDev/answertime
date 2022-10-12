@@ -1,4 +1,4 @@
-![hero image](assets/readmeimages/hero.png)
+![hero image](assets/readmeimages/hero.webp)
 
 # Answer-Time Quiz
 
@@ -51,14 +51,14 @@ It is designed with each section of the game structured in its own div within th
 
 For this project, I decided to keep the color scheme pretty simple. I felt the below colors fulfilled what I required, with the expection of the 'correct/incorrect' colors shown on the question result screen. In this specific circumstance I opted for more primary colors to best portray the result.
 
-![hero image](assets/readmeimages/palette.png)
+![hero image](assets/readmeimages/palette.webp)
 
 
 ### Wireframe
 
 Due to the simplicity of the design, all devices follow the same structured wireframe, with the only major difference being that the main container for the quiz is set to 50% width on larger screens.
 
-![wireframe](assets/readmeimages/wireframe.png)
+![wireframe](assets/readmeimages/wireframe.webp)
 
 
 ## Technologies
@@ -88,36 +88,36 @@ The welcome section is the screen the end user is presented with on page load.
 
 It provides the user with a breif description of the game, along with a start button, and a how to play button. It also contains a logo which redirects to the welcome screen and a toggle for audio, both of which are present on any suqsequent screens.
 
-![Welcome screen](assets/readmeimages/welcome-screen.png)
+![Welcome screen](assets/readmeimages/welcome-screen.webp)
 
 ### Choose Game screen
 
 The choose game screen allows the user to choose which quiz type they would like to play (General Knowledge/Music). 
 
-![Choose Game](assets/readmeimages/choose-game.png)
+![Choose Game](assets/readmeimages/choose-game.webp)
 
 ### How to Play screen
 
 The how to play screen provides the user with the guidelines of the game, along with a button to return to the welcome screen.
 
-![How To Play](assets/readmeimages/how-to-play.png)
+![How To Play](assets/readmeimages/how-to-play.webp)
 
 ### Question screen
 
 The question screen contains the current question number. It also contains a countdown bar, which decreases every second for 10 seconds. It also contains the current question, along with 4 buttons for each answer.
 Finally, it containes the players current overall score, and the total possible score.
 
-![Question Screen](assets/readmeimages/question-screen.png)
+![Question Screen](assets/readmeimages/question-screen.webp)
 
 ### Correct/Incorrect Answer screen
 
 The correct answer screen displays the selected answer, and the number of seconds it took to select this ansswer. It also displays the number of points added to the overall score. Finally, it displays a button which can be selected to continue to the next question.
 
-![Correct Answer](assets/readmeimages/correct-answer.png)
+![Correct Answer](assets/readmeimages/correct-answer.webp)
 
 The incorrect answer screen simply displays the incorrect selected answer, along with a button to continue to the nect question.
 
-![Incorrect Answer](assets/readmeimages/incorrect-answer.png)
+![Incorrect Answer](assets/readmeimages/incorrect-answer.webp)
 
 ### Timeout Screen
 
@@ -127,7 +127,7 @@ The timeout screen displays if 10 seconds have passed without an answer being se
 
 This screen displays the result of their final answer, their overall score, and a button to start a new game.
 
-![Game Over](assets/readmeimages/game-over.png)
+![Game Over](assets/readmeimages/game-over.webp)
 
 ## Testing
 
@@ -142,19 +142,19 @@ This website was tested in the following instances:
 
 W3C Validation:
 
-![W3C](assets/readmeimages/w3c.png) -->
+![W3C](assets/readmeimages/w3c.webp) -->
 
 Jigsaw Validation:
 
-![Jigsaw](assets/readmeimages/css.png)
+![Jigsaw](assets/readmeimages/css.webp)
 
 Jshint validator was used to validate the JavaScript code.
 
-![Jshint](assets/readmeimages/jshint.png)
+![Jshint](assets/readmeimages/jshint.webp)
 
 Lighhouse score:
 
-![LightHouse Score](assets/readmeimages/lighthouse.png)
+![LightHouse Score](assets/readmeimages/lighthouse.webp)
 
 
 ## Resolved Bugs
