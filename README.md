@@ -181,7 +181,7 @@ Lighhouse score:
 - A leaderboard (when the skills for this have been learned)
 
 
-# Deployment 
+## Deployment 
 This website is deployed to GitHub.
 To deploy to GitHub, I completed the following steps
 1. Login or signup to [GitHub](https://github.com/)
