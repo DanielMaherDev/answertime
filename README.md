@@ -35,8 +35,8 @@ The interactive code was developed in Javascript and the interface was developed
   - [Unresolved Bugs](#unresolved-bugs)
   - [Features I would like to Implement](#features-I-would-like-to-implement)
   - [Deployment](#deployment)
-  -[Cloning](#cloning)
-  -[Forking](#forking)
+  - [Cloning](#cloning)
+  - [Forking](#forking)
   - [Credits](#credits)
  
 ## Design
