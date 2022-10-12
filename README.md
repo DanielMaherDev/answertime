@@ -65,11 +65,11 @@ Due to the simplicity of the design, all devices follow the same structured wire
 
 The technologies used in this project were HTML, CSS and JavaScript. The HTML was used to create the structure of the page, the CSS was used to style the page and the JavaScript was used to make the entire game work.
 
-    - HTML5
-    - CSS3
-    - JavaScript
-    - GitHub
-    - [Am I Responsive](http://ami.responsivedesign.is/) to test responsiveness
+- HTML5
+- CSS3
+- JavaScript
+- GitHub
+- [Am I Responsive](http://ami.responsivedesign.is/) to test responsiveness
 
 ## User Stories
 
