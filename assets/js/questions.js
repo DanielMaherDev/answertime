@@ -24,7 +24,7 @@ let games =[
      choiceD: "Bernie Sanders",
      correct: "B",
    },{
-     question: "Whats the biggest animal in the world?",
+     question: "What is the biggest animal in the world?",
      choiceA: "The Atlantic Blue Whale",
      choiceB: "The Great White Shark",
      choiceC: "Saltwater Crocodile	",
