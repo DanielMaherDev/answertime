@@ -17,22 +17,27 @@ The interactive code was developed in Javascript and the interface was developed
 - [Answer-Time Quiz](#answertime-quiz)
   - [Introduction](#introduction)
   - [Table of Contents](#table-of-contents)
-  - [User Experience](#UserExperience)
-      - [Strategy](#strategy)
+  - [Design](#design)
+    - [Color Scheme](#color-scheme)
+    - [Wireframe](#wireframe)
   - [Technologies](#technologies)
+  - [User Stories](#user-stories)
   - [Features](#features)
-    - [Main Page](#main-page)
-    - [Options Menu](#options-menu)
-    - [Rules Menu](#rules-menu)
-    - [Results Menu](#results-menu)
-    - [Game](#game)
+    - [Welcome Section](#welcome-section)
+    - [Choose Game Screen](#choose-game-screen)
+    - [Rules Menu](#how-to-play-screen)
+    - [Question Screen](#Question-screen)
+    - [Correct/Incorrect Answer Screen](#Correct/Incorrect-answer-screen)
+    - [Timeout Screen](#timeout-screen)
+    - [Game over Screen](#game-over-screen)
   - [Testing](#testing)
-  - [Unfixed Bugs](#unfixed-bugs)
-  - [Features Left to Implement](#features-left-to-implement)
+  - [Resolved Bugs](#resolved-bugs)
+  - [Unresolved Bugs](#unresolved-bugs)
+  - [Features I would like to Implement](#features-I-would-like-to-implement)
   - [Deployment](#deployment)
+  -[Cloning](#cloning)
+  -[Forking](#forking)
   - [Credits](#credits)
-  - [Acknowledgements](#acknowledgements)
-
  
 ## Design
 
@@ -42,14 +47,14 @@ The game is designed to be as intuitive as possible, with clear distinction for 
 
 It is designed with each section of the game structured in its own div within the HTML, to allow for easier readability, scalability and de-bugging.
 
-## Color Scheme
+### Color Scheme
 
 For this project, I decided to keep the color scheme pretty simple. I felt the below colors fulfilled what I required, with the expection of the 'correct/incorrect' colors shown on the question result screen. In this specific circumstance I opted for more primary colors to best portray the result.
 
 ![hero image](assets/readmeimages/palette.png)
 
 
-## Wireframe
+### Wireframe
 
 Due to the simplicity of the design, all devices follow the same structured wireframe, with the only major difference being that the main container for the quiz is set to 50% width on larger screens.
 
@@ -60,11 +65,11 @@ Due to the simplicity of the design, all devices follow the same structured wire
 
 The technologies used in this project were HTML, CSS and JavaScript. The HTML was used to create the structure of the page, the CSS was used to style the page and the JavaScript was used to make the entire game work.
 
-    * HTML5
-    * CSS3
-    * JavaScript
-    * GitHub
-    * [Am I Responsive](http://ami.responsivedesign.is/) to test responsiveness
+    - HTML5
+    - CSS3
+    - JavaScript
+    - GitHub
+    - [Am I Responsive](http://ami.responsivedesign.is/) to test responsiveness
 
 ## User Stories
 
@@ -162,7 +167,7 @@ Lighhouse score:
 | If no answer was selected on the final question, nothing would happen | Yes - created an if/else to check if an answer was selected after timer runs out      | 
 | Timer did not function upon selecting new game      | Yes - Reloaded entire page instead of calling function |
 
- ## Unesolved Bugs
+ ## Unresolved Bugs
 
  Bug   
 (Unable to replicate currently - but not confirmed resolved) - Occasionally some have previously noticed that the next question would not load after selecting next question
@@ -184,6 +189,21 @@ To deploy to GitHub, I completed the following steps
 3. Go to the repository settings, and within here select 'pages'
 5. Select `main` in the Source drop down box below the 'Build and deployment' title and click save.
 6. Wait for the live site to become active. Upon reloading a link will appear for the site
+
+## Cloning
+1. On GitHub.com, navigate to the main page of the repository which is ['here'](https://github.com/DanielMaherDev/answertime)
+2. Above the list of files, click  Code.
+3. Copy the URL for the repository.
+4. Open Git Bash.
+5. Change the current working directory to the location where you want the cloned directory.
+6. Type git clone, and then paste the URL you copied earlier.
+7. Press Enter to create your local clone.
+
+## Forking
+1. Login or signup to [GitHub](https://github.com/)
+2. Find the relevant repo, which is in this case ['answertime'](https://github.com/DanielMaherDev/answertime)
+3. Click on the 'Fork' button in the upper left.
+4. Your forked version of this repo will be generated!
 
 ## Credits
 
